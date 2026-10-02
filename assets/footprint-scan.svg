@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 400" role="img" aria-label="Footprint scan">
+  <defs>
+    <linearGradient id="f-fill" x1="0.25" y1="0" x2="0.75" y2="1">
+      <stop offset="0" stop-color="#3E8C78" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#2F6D5E" stop-opacity="0.34"/>
+    </linearGradient>
+    <linearGradient id="f-hot" x1="0.3" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#C9A87C" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#C9A87C" stop-opacity="0.45"/>
+    </linearGradient>
+    <radialGradient id="f-glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0" stop-color="#3E8C78" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#3E8C78" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="f-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <path d="M22,0 L0,0 L0,22" fill="none" stroke="#2F6D5E" stroke-opacity="0.085" stroke-width="1"/>
+    </pattern>
+
+    <!-- one clean footprint silhouette: forefoot + midfoot + heel -->
+    <path id="f-shoe"
+      d="M220,74
+         C258,74 282,96 285,132
+         C288,164 286,186 282,206
+         C279,222 272,232 262,238
+         C252,244 240,246 230,246
+         C220,246 208,244 198,238
+         C188,232 181,222 178,206
+         C174,186 172,164 175,132
+         C178,96 202,74 220,74 Z"/>
+    <path id="f-heel"
+      d="M220,258
+         C250,258 270,282 270,314
+         C270,346 250,368 220,368
+         C190,368 170,346 170,314
+         C170,282 190,258 220,258 Z"/>
+  </defs>
+
+  <rect width="440" height="400" fill="url(#f-grid)"/>
+  <ellipse cx="220" cy="215" rx="205" ry="180" fill="url(#f-glow)"/>
+
+  <!-- scan frame corners -->
+  <g stroke="#2F6D5E" stroke-opacity="0.42" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M36,62 L36,36 L62,36"/>
+    <path d="M378,36 L404,36 L404,62"/>
+    <path d="M404,338 L404,364 L378,364"/>
+    <path d="M62,364 L36,364 L36,338"/>
+  </g>
+
+  <!-- toes -->
+  <g fill="url(#f-fill)">
+    <ellipse cx="182" cy="52" rx="21" ry="24"/>
+    <ellipse cx="215" cy="40" rx="17" ry="19"/>
+    <ellipse cx="244" cy="46" rx="14" ry="16"/>
+    <ellipse cx="267" cy="59" rx="11.5" ry="13"/>
+    <ellipse cx="285" cy="76" rx="9.5" ry="11"/>
+  </g>
+
+  <!-- forefoot pad -->
+  <use href="#f-shoe" fill="url(#f-fill)"/>
+  <!-- metatarsal hot zone -->
+  <ellipse cx="212" cy="168" rx="52" ry="34" fill="url(#f-hot)" opacity="0.5"/>
+  <!-- arch shadow (medial) -->
+  <path d="M186,200 C196,222 212,236 230,240 C214,246 196,238 186,218 C180,206 180,196 186,200 Z"
+        fill="#1B4438" opacity="0.16"/>
+
+  <!-- heel pad -->
+  <use href="#f-heel" fill="url(#f-fill)"/>
+  <ellipse cx="220" cy="318" rx="34" ry="32" fill="url(#f-hot)" opacity="0.42"/>
+
+  <!-- outline -->
+  <g fill="none" stroke="#2F6D5E" stroke-opacity="0.4" stroke-width="1.6">
+    <use href="#f-shoe"/>
+    <use href="#f-heel"/>
+  </g>
+
+  <!-- arch measurement -->
+  <path d="M178,206 C182,248 196,276 206,296" fill="none"
+        stroke="#C9A87C" stroke-width="2" stroke-dasharray="6 5" opacity="0.85"/>
+  <circle cx="178" cy="206" r="3.6" fill="#C9A87C"/>
+  <circle cx="206" cy="296" r="3.6" fill="#C9A87C"/>
+
+  <!-- scan readout -->
+  <g opacity="0.55">
+    <circle cx="330" cy="196" r="3" fill="#2F6D5E"/>
+    <circle cx="342" cy="196" r="3" fill="#2F6D5E"/>
+    <circle cx="354" cy="196" r="3" fill="#2F6D5E"/>
+    <rect x="326" y="208" width="42" height="3" rx="1.5" fill="#2F6D5E" opacity="0.5"/>
+    <rect x="326" y="217" width="30" height="3" rx="1.5" fill="#2F6D5E" opacity="0.35"/>
+  </g>
+</svg>

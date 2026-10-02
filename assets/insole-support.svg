@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 660" role="img" aria-label="Insole dengan sokongan tegas">
+  <defs>
+    <linearGradient id="s-body" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#69B5A0"/>
+      <stop offset="0.42" stop-color="#3E8C78"/>
+      <stop offset="1" stop-color="#25564A"/>
+    </linearGradient>
+    <radialGradient id="s-sheen" cx="0.34" cy="0.24" r="0.72">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.42"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="s-arch" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#123227" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#123227" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="s-rim" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.62"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.34"/>
+    </linearGradient>
+    <filter id="s-shadow" x="-45%" y="-18%" width="190%" height="145%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#1A1815" flood-opacity="0.2"/>
+    </filter>
+    <path id="s-shape"
+      d="M160,30
+         C205,30 245,60 250,96
+         C255,132 257,150 256,170
+         C254,215 246,240 240,268
+         C236,300 234,340 234,380
+         C234,425 230,465 222,500
+         C214,540 208,580 196,610
+         C186,630 174,636 160,636
+         C146,636 134,630 124,610
+         C112,580 106,540 98,500
+         C90,465 86,425 86,380
+         C86,345 98,322 112,300
+         C122,282 108,240 88,206
+         C72,178 68,150 70,130
+         C72,95 82,60 100,44
+         C116,31 138,30 160,30 Z"/>
+    <clipPath id="s-clip"><use href="#s-shape"/></clipPath>
+  </defs>
+
+  <ellipse cx="160" cy="648" rx="86" ry="12" fill="#1A1815" opacity="0.07"/>
+
+  <g filter="url(#s-shadow)">
+    <use href="#s-shape" fill="url(#s-body)"/>
+  </g>
+
+  <g clip-path="url(#s-clip)">
+    <use href="#s-shape" fill="url(#s-body)"/>
+    <ellipse cx="146" cy="180" rx="150" ry="215" fill="url(#s-sheen)"/>
+    <ellipse cx="122" cy="366" rx="66" ry="118" fill="url(#s-arch)"/>
+
+    <!-- arch support ridge -->
+    <path d="M104,452 C112,400 132,364 148,318 C158,290 152,258 146,228"
+          fill="none" stroke="#123227" stroke-opacity="0.3" stroke-width="13" stroke-linecap="round"/>
+    <path d="M108,450 C116,402 134,368 149,324"
+          fill="none" stroke="#ffffff" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- heel cup -->
+    <ellipse cx="160" cy="540" rx="60" ry="66" fill="none"
+             stroke="#123227" stroke-opacity="0.22" stroke-width="3"/>
+    <path d="M112,548 C120,592 138,612 160,612 C182,612 200,592 208,548"
+          fill="none" stroke="#ffffff" stroke-opacity="0.36" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- forefoot pressure zone -->
+    <path d="M120,196 C144,184 176,184 200,196" fill="none"
+          stroke="#ffffff" stroke-opacity="0.32" stroke-width="3" stroke-linecap="round"/>
+    <path d="M118,218 C144,206 176,206 202,218" fill="none"
+          stroke="#ffffff" stroke-opacity="0.16" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+
+  <use href="#s-shape" fill="none" stroke="url(#s-rim)" stroke-width="2.4"/>
+
+  <g fill="#ffffff" opacity="0.22">
+    <circle cx="138" cy="92" r="4"/><circle cx="160" cy="86" r="4.6"/>
+    <circle cx="182" cy="92" r="4"/><circle cx="200" cy="106" r="3.4"/>
+    <circle cx="120" cy="106" r="3.4"/>
+  </g>
+</svg>

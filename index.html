@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InsoLab — Custom Insoles, Made for Your Feet</title>
+<meta name="description" content="Custom insoles dibuat mengikut bentuk kaki anda. Order dari rumah, imprint sendiri, sampai dalam 12–18 hari kerja. Penghantaran seluruh Malaysia.">
+<meta name="theme-color" content="#FAF8F5">
+<meta property="og:title" content="InsoLab — Custom Insoles, Made for Your Feet">
+<meta property="og:description" content="Custom insoles dibuat mengikut bentuk kaki anda. Order dari rumah, kami uruskan selebihnya.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=4">
+</head>
+<body class="is-loading">
+
+<!-- ============ PRELOADER ============ -->
+<div class="loader" id="loader">
+  <div class="loader-mark">Inso<span>Lab</span></div>
+  <div class="loader-track"><div class="loader-bar" id="loader-bar"></div></div>
+  <div class="loader-pct" id="loader-pct">000%</div>
+</div>
+
+<!-- ============ FILM TEXTURE ============ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr">
+  <div class="wrap hdr-inner">
+    <a href="#top" class="brand">Inso<span>Lab</span></a>
+
+    <nav class="nav" id="nav">
+      <a href="#process">Proses</a>
+      <a href="#products">Produk</a>
+      <a href="#faq">FAQ</a>
+      <a href="#order">Order</a>
+      <a href="https://wa.me/60176055349" target="_blank" rel="noopener" class="btn btn--primary">WhatsApp</a>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-bloom hero-bloom--1" aria-hidden="true"></div>
+  <div class="hero-bloom hero-bloom--2" aria-hidden="true"></div>
+  <div class="hero-bloom hero-bloom--3" aria-hidden="true"></div>
+  <div class="hero-shaft" aria-hidden="true"></div>
+
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Custom Insoles Specialist · Malaysia</span>
+
+      <h1 class="hero-title">
+        <span class="line-mask"><span class="line-inner">Pakar Custom Insoles.</span></span>
+        <span class="line-mask"><span class="line-inner"><em>Khas Untuk Anda.</em></span></span>
+      </h1>
+
+      <p class="hero-sub">
+        Setiap pasang dibuat mengikut bentuk kaki anda sendiri.
+        Order dari rumah, kami uruskan selebihnya.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#order" class="btn btn--primary btn--lg">Order Sekarang — RM399</a>
+        <a href="#process" class="btn btn--ghost btn--lg">Cara Ia Berfungsi</a>
+      </div>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="hero-meta-num">100<sup>hari</sup></div>
+          <div class="hero-meta-label">Guarantee</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-num">12–18<sup>hari</sup></div>
+          <div class="hero-meta-label">Waktu siap</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-num">2–3<sup>hari</sup></div>
+          <div class="hero-meta-label">Kit sampai</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <span class="hero-visual-tag">3D — Live Render</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="scroll-hint-line"></span>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Impression Kit Percuma</span>
+    <span class="marquee-item">Return Postage Ditanggung</span>
+    <span class="marquee-item">Dibuat Khas Untuk Anda</span>
+    <span class="marquee-item">100 Hari Guarantee</span>
+    <span class="marquee-item">Seluruh Malaysia</span>
+    <span class="marquee-item">Impression Kit Percuma</span>
+    <span class="marquee-item">Return Postage Ditanggung</span>
+    <span class="marquee-item">Dibuat Khas Untuk Anda</span>
+    <span class="marquee-item">100 Hari Guarantee</span>
+    <span class="marquee-item">Seluruh Malaysia</span>
+  </div>
+</div>
+
+<!-- ============ STATEMENT ============ -->
+<section class="section statement">
+  <div class="wrap">
+    <p class="statement-text">
+      <span class="word">Setiap</span> <span class="word">kaki</span> <span class="word">itu</span>
+      <span class="word">berbeza.</span> <span class="word">Jadi</span> <span class="word">kenapa</span>
+      <span class="word">insole</span> <span class="word">anda</span> <span class="word">perlu</span>
+      <span class="word">sama</span> <span class="word">dengan</span> <span class="word">orang</span>
+      <span class="word">lain?</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ SPLIT 1 — kenapa ============ -->
+<section class="section section--tight">
+  <div class="wrap split">
+    <div class="split-visual">
+      <div class="split-visual-inner">
+        <img src="assets/footprint-scan.svg" alt="Footprint scan — bentuk kaki yang diambil dari impression kit" class="split-visual-art" width="420" height="380" loading="lazy">
+      </div>
+    </div>
+    <div class="split-copy" data-reveal>
+      <span class="eyebrow">Kenapa InsoLab</span>
+      <h2>Dibuat mengikut bentuk kaki anda — bukan mengikut saiz kasut.</h2>
+      <p>
+        Insole di pasaran dibuat untuk "saiz". Tapi setiap orang berjalan dengan cara berbeza,
+        pada kasut berbeza, untuk keperluan berbeza.
+      </p>
+      <p>
+        Jadi kami ambil pendekatan lain. Anda ambil bentuk kaki anda sendiri di rumah,
+        dan kami hasilkan insole mengikut bentuk itu.
+      </p>
+      <a href="#products" class="btn btn--ghost">Lihat Produk</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPLIT 2 — proses di rumah ============ -->
+<section class="section section--tight">
+  <div class="wrap split split--flip">
+    <div class="split-visual">
+      <div class="split-visual-inner">
+        <img src="assets/impression-kit.svg" alt="Impression kit InsoLab — kotak dengan dua foam tray" class="split-visual-art" width="420" height="380" loading="lazy">
+      </div>
+    </div>
+    <div class="split-copy" data-reveal>
+      <span class="eyebrow">100% Dari Rumah</span>
+      <h2>Tiada temujanji. Tiada klinik. Tiada menunggu.</h2>
+      <p>
+        Kami pos impression kit ke pintu rumah anda. Anda tekan kaki ke foam tray
+        ikut panduan bergambar yang kami sediakan — ambil masa 5 minit sahaja.
+      </p>
+      <p>
+        Lepas itu, masukkan semula ke dalam kotak dan hantar balik guna airway bill
+        yang kami sediakan. Postage kami tanggung.
+      </p>
+      <a href="#faq" class="btn btn--ghost">Soalan Lazim</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head" data-reveal style="margin-bottom:var(--s-5)">
+      <span class="eyebrow">Proses</span>
+      <h2 style="font-size:var(--t-lg);margin-top:var(--s-2)">Enam langkah. Satu insole.</h2>
+    </div>
+
+    <div class="process-list">
+      <div class="process-row">
+        <div class="process-num">01</div>
+        <div class="process-name">Order</div>
+        <div>
+          <div class="process-desc">Pilih produk dan buat pesanan. Kami akan hubungi anda untuk pengesahan pembayaran.</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">02</div>
+        <div class="process-name">Impression Kit</div>
+        <div>
+          <div class="process-desc">Kit sampai ke alamat anda, lengkap dengan foam tray dan panduan bergambar.</div>
+          <div class="process-time">2–3 hari kerja</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">03</div>
+        <div class="process-name">Imprint</div>
+        <div>
+          <div class="process-desc">Tekan kaki anda ke foam tray ikut panduan. Ambil masa lebih kurang 5 minit.</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">04</div>
+        <div class="process-name">Hantar Balik</div>
+        <div>
+          <div class="process-desc">Guna airway bill prabayar yang kami sediakan. Tiada kos untuk anda.</div>
+          <div class="process-time">Postage percuma</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">05</div>
+        <div class="process-name">Kami Hasilkan</div>
+        <div>
+          <div class="process-desc">Kami rancang dan hasilkan insole mengikut bentuk kaki anda.</div>
+          <div class="process-time">12–18 hari kerja</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">06</div>
+        <div class="process-name">Sampai Ke Rumah</div>
+        <div>
+          <div class="process-desc">Insole dihantar ke alamat anda. Kami maklumkan bila ia keluar dari bengkel.</div>
+          <div class="process-time">Seluruh Malaysia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="section" id="products">
+  <div class="wrap">
+    <div class="section-head" data-reveal style="margin-bottom:var(--s-5)">
+      <span class="eyebrow">Produk</span>
+      <h2 style="font-size:var(--t-lg);margin-top:var(--s-2)">Dua pilihan. Dua cara hidup.</h2>
+    </div>
+
+    <div class="product-grid" data-reveal-group>
+      <article class="product-card" data-reveal>
+        <div class="product-media">
+          <span class="product-badge">Aktiviti Berat</span>
+          <img src="assets/insole-support.svg" alt="InsoLab On My Feet All Day — insole dengan sokongan tegas" class="product-art" width="320" height="660" loading="lazy">
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">On My Feet All Day</h3>
+          <p class="product-desc">
+            Untuk anda yang berdiri atau berjalan 4+ jam sehari. Sokongan lebih tegas
+            dan struktur lebih stabil untuk hari yang panjang.
+          </p>
+          <div class="product-foot">
+            <div class="product-price">RM399 <small>/ unit</small></div>
+            <a href="#order" class="btn btn--primary">Order</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-reveal>
+        <div class="product-media">
+          <span class="product-badge">Aktiviti Harian</span>
+          <img src="assets/insole-everyday.svg" alt="InsoLab Normal Everyday Activity — insole ringan untuk harian" class="product-art" width="320" height="660" loading="lazy">
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Normal Everyday Activity</h3>
+          <p class="product-desc">
+            Untuk aktiviti harian 1–4 jam sehari. Rasa lebih ringan, lebih semula jadi,
+            sesuai dipakai setiap hari.
+          </p>
+          <div class="product-foot">
+            <div class="product-price">RM399 <small>/ unit</small></div>
+            <a href="#order" class="btn btn--primary">Order</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="bundle-strip" data-reveal>
+      <div>
+        <h3>Ambil dua, jimat RM148.</h3>
+        <p>Untuk anda dan pasangan, atau dua pasang untuk kegunaan berbeza.</p>
+      </div>
+      <a href="#order" class="btn btn--primary btn--lg">Order 2 Unit — RM650</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head" data-reveal style="margin-bottom:var(--s-5)">
+      <span class="eyebrow">Pengalaman</span>
+      <h2 style="font-size:var(--t-lg);margin-top:var(--s-2)">Apa kata mereka.</h2>
+    </div>
+
+    <div class="quote-grid" data-reveal-group>
+      <figure class="quote-card" data-reveal style="margin:0">
+        <div class="quote-mark">&ldquo;</div>
+        <blockquote class="quote-text" style="margin:0">
+          Saya kerja berdiri 8 jam sehari. Lepas pakai insole ni, kaki tak rasa
+          penat sangat macam dulu.
+        </blockquote>
+        <figcaption class="quote-who">
+          <div class="quote-avatar">A</div>
+          <div>
+            <div class="quote-name">Ahmad R.</div>
+            <div class="quote-role">On My Feet All Day</div>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote-card" data-reveal style="margin:0">
+        <div class="quote-mark">&ldquo;</div>
+        <blockquote class="quote-text" style="margin:0">
+          Prosesnya senang sangat. Kit sampai, buat imprint sendiri di rumah,
+          hantar balik. Tak perlu pergi mana-mana.
+        </blockquote>
+        <figcaption class="quote-who">
+          <div class="quote-avatar">S</div>
+          <div>
+            <div class="quote-name">Siti N.</div>
+            <div class="quote-role">Normal Everyday Activity</div>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote-card" data-reveal style="margin:0">
+        <div class="quote-mark">&ldquo;</div>
+        <blockquote class="quote-text" style="margin:0">
+          Ambil 2 unit untuk saya dan suami. Harga berbaloi, dan yang penting
+          selesa dipakai.
+        </blockquote>
+        <figcaption class="quote-who">
+          <div class="quote-avatar">L</div>
+          <div>
+            <div class="quote-name">Lim W.</div>
+            <div class="quote-role">2 Unit Package</div>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUARANTEE ============ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="guarantee" data-reveal>
+      <div class="guarantee-inner">
+        <span class="guarantee-pill">100 Hari Guarantee</span>
+        <h2>Tak puas hati? Kami baiki.</h2>
+        <p>
+          Dalam 100 hari pertama selepas anda terima insole, kalau anda tidak berpuas hati,
+          kami akan membaiki atau mengubah suai insole tersebut untuk anda secara percuma.
+          Kami percaya kami boleh membuatkan anda lebih selesa.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head" data-reveal style="margin-bottom:var(--s-5)">
+      <span class="eyebrow">Soalan Lazim</span>
+      <h2 style="font-size:var(--t-lg);margin-top:var(--s-2)">Yang selalu ditanya.</h2>
+    </div>
+
+    <div class="faq-wrap">
+      <div class="faq-group" data-reveal>
+        <div class="faq-group-title">Proses</div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Apa itu impression kit?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Impression kit ialah set yang mengandungi dua buah foam tray. Anda tekan kaki
+            ke dalam tray untuk mengambil bentuk kaki anda. Bentuk itu kami gunakan sebagai
+            rujukan untuk menghasilkan insole custom anda.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Bagaimana cara buat imprint?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Mudah sahaja:
+            <ul>
+              <li>Buka foam tray dari kit.</li>
+              <li>Letak tray di atas permukaan keras.</li>
+              <li>Tekan kaki ke dalam tray dengan berat badan penuh.</li>
+              <li>Pastikan seluruh tapak kaki terkesan dengan sekata.</li>
+              <li>Ulang untuk kaki sebelah lagi.</li>
+            </ul>
+            Panduan bergambar ada dalam kit. Kalau keliru, WhatsApp kami.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Berapa lama kit sampai?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            2–3 hari kerja dari tarikh pesanan dan pembayaran disahkan.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Bagaimana cara hantar balik kit?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Kit disertakan dengan airway bill prabayar. Masukkan tray yang telah digunakan
+            ke dalam kotak, tampal airway bill tersebut, dan hantar di pejabat pos atau
+            pusat penghantaran terdekat. Tiada kos untuk anda.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Berapa lama insole siap?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            12–18 hari kerja selepas kami terima impression kit anda. Kami akan maklumkan
+            melalui WhatsApp atau email apabila insole siap dan dihantar.
+          </div></div>
+        </div>
+      </div>
+
+      <div class="faq-group" data-reveal>
+        <div class="faq-group-title">Produk</div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Apa beza antara kedua-dua produk?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <strong>On My Feet All Day</strong> — untuk anda yang berdiri atau berjalan
+            4+ jam sehari. Sokongan lebih tegas dan struktur lebih stabil.<br><br>
+            <strong>Normal Everyday Activity</strong> — untuk aktiviti harian 1–4 jam.
+            Rasa lebih ringan dan semula jadi.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Boleh pakai dengan semua jenis kasut?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Sesuai untuk kebanyakan kasut yang mempunyai ruang mencukupi — kasut sukan,
+            kasut kerja, kasut harian. Untuk kasut yang sangat ketat, mungkin perlu
+            pertimbangan tambahan. Tanya kami di WhatsApp kalau tak pasti.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Berapa lama insole tahan?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Tempoh penggunaan bergantung pada kekerapan dan cara penggunaan. Kalau anda
+            rasa sokongan mula berkurang, hubungi kami — kami boleh nilaikan keadaan
+            insole anda.
+          </div></div>
+        </div>
+      </div>
+
+      <div class="faq-group" data-reveal>
+        <div class="faq-group-title">Guarantee</div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Apa maksud 100 hari guarantee?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Dalam 100 hari pertama selepas anda terima insole, kalau anda tidak berpuas hati,
+            kami akan membaiki atau mengubah suai insole tersebut untuk anda secara percuma.
+            Ini bukan refund wang — kami percaya kami boleh membuatkan anda lebih selesa.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Apa perlu buat kalau tak puas hati?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            WhatsApp kami di <a href="https://wa.me/60176055349" target="_blank" rel="noopener">017-605 5349</a>.
+            Beritahu nombor pesanan anda dan apa yang tidak kena. Kami akan bantu dari situ.
+          </div></div>
+        </div>
+      </div>
+
+      <div class="faq-group" data-reveal>
+        <div class="faq-group-title">Penghantaran &amp; Umum</div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Ke mana sahaja penghantaran?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Buat masa ini, penghantaran dalam Malaysia sahaja.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Berapa lama keseluruhan proses?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Kira-kira 3–4 minggu dari tarikh pesanan: 2–3 hari kerja untuk kit sampai,
+            masa anda buat imprint, masa penghantaran balik, dan 12–18 hari kerja untuk
+            kami hasilkan insole.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Adakah InsoLab produk kesihatan?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <strong>Tidak.</strong> InsoLab custom insoles adalah produk untuk keselesaan,
+            sokongan dan fesyen custom. Produk ini tidak bertujuan untuk mendiagnosis,
+            merawat atau menyembuhkan apa-apa penyakit. Untuk sebarang masalah kesihatan
+            kaki, sila rujuk pakar perubatan.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Ada soalan lain?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            WhatsApp kami di <a href="https://wa.me/60176055349" target="_blank" rel="noopener">017-605 5349</a>
+            — kami biasanya balas dalam masa sehari.
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORDER ============ -->
+<section class="section" id="order">
+  <div class="wrap">
+
+    <!-- --- checkout view --- -->
+    <div id="view-checkout">
+      <div class="section-head" data-reveal style="margin-bottom:var(--s-5)">
+        <span class="eyebrow">Order</span>
+        <h2 style="font-size:var(--t-lg);margin-top:var(--s-2)">Mula dengan impression kit.</h2>
+      </div>
+
+      <div class="split" style="align-items:start">
+        <form id="order-form" data-reveal>
+          <div class="form-row">
+            <label class="form-label" for="f-name">Nama Penuh <span>*</span></label>
+            <input class="form-input" id="f-name" name="name" type="text" placeholder="Seperti dalam kad pengenalan" required>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-row">
+              <label class="form-label" for="f-phone">No. Telefon <span>*</span></label>
+              <input class="form-input" id="f-phone" name="phone" type="tel" placeholder="01X-XXX XXXX" required>
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="f-email">Email <span>*</span></label>
+              <input class="form-input" id="f-email" name="email" type="email" placeholder="nama@email.com" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="f-addr">Alamat Penghantaran <span>*</span></label>
+            <input class="form-input" id="f-addr" name="address" type="text" placeholder="No. rumah, jalan" required>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-row">
+              <label class="form-label" for="f-city">Bandar <span>*</span></label>
+              <input class="form-input" id="f-city" name="city" type="text" placeholder="Bandar" required>
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="f-state">Negeri <span>*</span></label>
+              <select class="form-input" id="f-state" name="state" required>
+                <option value="">Pilih negeri</option>
+                <option>Johor</option><option>Kedah</option><option>Kelantan</option>
+                <option>Melaka</option><option>Negeri Sembilan</option><option>Pahang</option>
+                <option>Perak</option><option>Perlis</option><option>Pulau Pinang</option>
+                <option>Sabah</option><option>Sarawak</option><option>Selangor</option>
+                <option>Terengganu</option><option>W.P. Kuala Lumpur</option>
+                <option>W.P. Labuan</option><option>W.P. Putrajaya</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-row">
+              <label class="form-label" for="f-post">Poskod <span>*</span></label>
+              <input class="form-input" id="f-post" name="postcode" type="text" placeholder="XXXXX" required>
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="f-notes">Nota (pilihan)</label>
+              <input class="form-input" id="f-notes" name="notes" type="text" placeholder="Ada apa-apa kami perlu tahu?">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--lg btn--block">
+            Teruskan ke Pembayaran — <span id="cta-total">RM399</span>
+          </button>
+
+          <p class="form-note">
+            Dengan membuat pesanan, anda bersetuju dengan terma kami. InsoLab custom insoles
+            adalah produk untuk keselesaan dan sokongan — bukan alat perubatan.
+          </p>
+        </form>
+
+        <div data-reveal>
+          <div class="summary">
+            <div class="summary-title">Ringkasan Pesanan</div>
+
+            <div class="pick-list">
+              <button type="button" class="pick is-picked" data-product="omfad-1">
+                <span class="pick-name">On My Feet All Day</span>
+                <span class="pick-meta">1 unit · RM399</span>
+              </button>
+              <button type="button" class="pick" data-product="nea-1">
+                <span class="pick-name">Normal Everyday Activity</span>
+                <span class="pick-meta">1 unit · RM399</span>
+              </button>
+              <button type="button" class="pick" data-product="bundle-2">
+                <span class="pick-name">2 Unit Package</span>
+                <span class="pick-meta">2 unit · RM650 · jimat RM148</span>
+              </button>
+            </div>
+
+            <div class="summary-lines">
+              <div class="summary-line"><span>Produk</span><span id="sum-name">On My Feet All Day</span></div>
+              <div class="summary-line"><span>Kuantiti</span><span id="sum-qty">1 unit</span></div>
+              <div class="summary-line"><span>Impression Kit</span><span>Termasuk</span></div>
+              <div class="summary-line"><span>Return Postage</span><span>Ditanggung</span></div>
+            </div>
+
+            <div class="summary-total">
+              <span>Jumlah</span>
+              <span id="sum-total">RM399</span>
+            </div>
+          </div>
+
+          <div class="summary summary--info">
+            <div class="summary-title">Perlu Diketahui</div>
+            <ul class="info-list">
+              <li>Impression kit dihantar dalam 2–3 hari kerja</li>
+              <li>Penghantaran balik kit adalah percuma</li>
+              <li>Insole siap dalam 12–18 hari kerja</li>
+              <li>Penghantaran dalam Malaysia sahaja</li>
+              <li>100 hari guarantee — kami baiki, bukan refund</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- --- confirmation view --- -->
+    <div id="view-confirm" hidden>
+      <div class="confirm">
+        <div class="confirm-check" data-reveal>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2 class="confirm-title" data-reveal>Terima kasih.</h2>
+        <p class="confirm-sub" data-reveal>
+          Pesanan anda telah diterima. Kami akan hubungi anda di WhatsApp untuk
+          pengesahan pembayaran.
+        </p>
+
+        <div class="confirm-card" data-reveal>
+          <div class="summary-title">Butiran Pesanan</div>
+          <div class="summary-lines">
+            <div class="summary-line"><span>No. Pesanan</span><span id="cf-no">ISL-000000</span></div>
+            <div class="summary-line"><span>Nama</span><span id="cf-name">—</span></div>
+            <div class="summary-line"><span>Telefon</span><span id="cf-phone">—</span></div>
+            <div class="summary-line"><span>Produk</span><span id="cf-product">—</span></div>
+            <div class="summary-line"><span>Jumlah</span><span id="cf-total">—</span></div>
+            <div class="summary-line"><span>Status</span><span>Menunggu Pembayaran</span></div>
+          </div>
+        </div>
+
+        <div class="confirm-steps" data-reveal>
+          <div class="summary-title">Apa Yang Berlaku Seterusnya</div>
+          <div class="confirm-step">
+            <div class="confirm-step-num">1</div>
+            <div>
+              <div class="confirm-step-name">Kami hubungi anda</div>
+              <div class="confirm-step-desc">Kami WhatsApp anda di nombor yang anda berikan untuk selesaikan pembayaran.</div>
+            </div>
+          </div>
+          <div class="confirm-step">
+            <div class="confirm-step-num">2</div>
+            <div>
+              <div class="confirm-step-name">Impression kit dihantar</div>
+              <div class="confirm-step-desc">Dalam 2–3 hari kerja selepas pembayaran disahkan.</div>
+            </div>
+          </div>
+          <div class="confirm-step">
+            <div class="confirm-step-num">3</div>
+            <div>
+              <div class="confirm-step-name">Anda buat imprint</div>
+              <div class="confirm-step-desc">Ikut panduan dalam kit. Kalau keliru, WhatsApp kami.</div>
+            </div>
+          </div>
+          <div class="confirm-step">
+            <div class="confirm-step-num">4</div>
+            <div>
+              <div class="confirm-step-name">Hantar balik kit</div>
+              <div class="confirm-step-desc">Guna airway bill yang disediakan. Postage kami tanggung.</div>
+            </div>
+          </div>
+          <div class="confirm-step">
+            <div class="confirm-step-num">5</div>
+            <div>
+              <div class="confirm-step-name">Kami hasilkan insole anda</div>
+              <div class="confirm-step-desc">12–18 hari kerja, kemudian dihantar ke alamat anda.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="confirm-actions" data-reveal>
+          <a href="https://wa.me/60176055349" target="_blank" rel="noopener" class="btn btn--primary btn--lg">WhatsApp Kami — 017-605 5349</a>
+          <a href="#top" class="btn btn--ghost btn--lg">Kembali ke Atas</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-final" data-reveal>
+      <div class="cta-final-inner">
+        <h2>Sedia untuk lebih selesa?</h2>
+        <p>Order hari ini. Impression kit sampai dalam 2–3 hari kerja.</p>
+        <a href="#order" class="btn btn--primary btn--lg">Order Sekarang — RM399</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <div class="ftr-brand">Inso<span>Lab</span></div>
+        <p class="ftr-desc">
+          Custom insoles dibuat mengikut bentuk kaki anda. Order dari rumah,
+          kami uruskan selebihnya.
+        </p>
+      </div>
+
+      <div>
+        <div class="ftr-col-title">Laman</div>
+        <div class="ftr-links">
+          <a href="#process">Proses</a>
+          <a href="#products">Produk</a>
+          <a href="#faq">FAQ</a>
+          <a href="#order">Order</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="ftr-col-title">Bantuan</div>
+        <div class="ftr-links">
+          <a href="https://wa.me/60176055349" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="#faq">Guarantee</a>
+          <a href="#faq">Penghantaran</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="ftr-col-title">Hubungi</div>
+        <div class="ftr-links">
+          <a href="https://wa.me/60176055349" target="_blank" rel="noopener">017-605 5349</a>
+          <span style="font-size:var(--t-small);color:var(--ink-soft)">Isnin–Jumaat, 9am–6pm</span>
+          <span style="font-size:var(--t-small);color:var(--ink-soft)">Seluruh Malaysia</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ftr-legal">
+      InsoLab custom insoles adalah produk untuk keselesaan, sokongan dan fesyen custom.
+      Produk ini tidak bertujuan untuk mendiagnosis, merawat, menyembuhkan atau mencegah
+      apa-apa penyakit. Untuk masalah kesihatan kaki, sila rujuk pakar perubatan.
+    </div>
+
+    <div class="ftr-bottom">
+      <span>&copy; <span id="year"></span> InsoLab. Hak cipta terpelihara.</span>
+      <span>Dibuat di Malaysia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a href="https://wa.me/60176055349" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp InsoLab">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03 0 1.19.87 2.35.99 2.51.12.17 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+  <span class="wa-float-label">017-605 5349</span>
+</a>
+
+<!-- ============ LIBRARIES ============ -->
+<script src="lib/lenis.min.js"></script>
+<script src="lib/gsap.min.js"></script>
+<script src="lib/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script type="module" src="js/hero3d.js"></script>
+
+</body>
+</html>
