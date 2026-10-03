@@ -55,19 +55,19 @@ function init() {
   );
   camera.position.set(0, 0.15, 5.4);
 
-  /* ---------- lighting: bright, warm key + teal rim ---------- */
-  const hemi = new THREE.HemisphereLight(0xfffaf2, 0xe8e0d4, 1.35);
+  /* ---------- lighting: neutral key + brand teal rim ---------- */
+  const hemi = new THREE.HemisphereLight(0xffffff, 0xe6f5f7, 1.35);
   scene.add(hemi);
 
-  const key = new THREE.DirectionalLight(0xfff4e2, 2.1);
+  const key = new THREE.DirectionalLight(0xffffff, 2.0);
   key.position.set(4, 6, 5);
   scene.add(key);
 
-  const rim = new THREE.DirectionalLight(0x6fd0b4, 1.5);
+  const rim = new THREE.DirectionalLight(0x00b3b8, 1.6);
   rim.position.set(-5, 1.5, -3);
   scene.add(rim);
 
-  const fill = new THREE.DirectionalLight(0xe0c9a6, 0.9);
+  const fill = new THREE.DirectionalLight(0xbfd4f0, 0.9);
   fill.position.set(-2, -3, 4);
   scene.add(fill);
 
@@ -98,7 +98,7 @@ function init() {
   geo.computeVertexNormals();
 
   const mat = new THREE.MeshStandardMaterial({
-    color: 0x3e8c78,
+    color: 0x00777c,
     roughness: 0.42,
     metalness: 0.06,
     flatShading: false
@@ -112,10 +112,10 @@ function init() {
   /* ---------- wireframe shell for a technical, precise feel ---------- */
   const wireGeo = new THREE.SphereGeometry(1.09, Math.round(Q.segments / 3), Math.round(Q.segments / 3));
   const wireMat = new THREE.MeshBasicMaterial({
-    color: 0x2f6d5e,
+    color: 0x0b3d91,
     wireframe: true,
     transparent: true,
-    opacity: 0.085
+    opacity: 0.11
   });
   const wire = new THREE.Mesh(wireGeo, wireMat);
   wire.scale.set(1.38, 1.38, 1.38 * 1.42);
@@ -134,10 +134,10 @@ function init() {
   pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
 
   const pMat = new THREE.PointsMaterial({
-    color: 0xc9a87c,
-    size: 0.032,
+    color: 0x00b3b8,
+    size: 0.034,
     transparent: true,
-    opacity: 0.55,
+    opacity: 0.6,
     sizeAttenuation: true,
     depthWrite: false
   });

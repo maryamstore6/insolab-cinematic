@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 660" role="img" aria-label="Insole untuk aktiviti harian">
   <defs>
     <linearGradient id="e-body" x1="0.18" y1="0" x2="0.82" y2="1">
-      <stop offset="0" stop-color="#F2E4C9"/>
-      <stop offset="0.46" stop-color="#C9A87C"/>
-      <stop offset="1" stop-color="#9C7A4E"/>
+      <stop offset="0" stop-color="#E6F5F7"/>
+      <stop offset="0.46" stop-color="#00B3B8"/>
+      <stop offset="1" stop-color="#00777C"/>
     </linearGradient>
     <radialGradient id="e-sheen" cx="0.36" cy="0.22" r="0.75">
       <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
@@ -16,7 +16,7 @@
       <stop offset="1" stop-color="#ffffff" stop-opacity="0.44"/>
     </linearGradient>
     <filter id="e-shadow" x="-45%" y="-18%" width="190%" height="145%">
-      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#1A1815" flood-opacity="0.18"/>
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#0B3D91" flood-opacity="0.18"/>
     </filter>
     <path id="e-shape"
       d="M160,36
@@ -38,7 +38,7 @@
     <clipPath id="e-clip"><use href="#e-shape"/></clipPath>
   </defs>
 
-  <ellipse cx="160" cy="644" rx="78" ry="11" fill="#1A1815" opacity="0.06"/>
+  <ellipse cx="160" cy="644" rx="78" ry="11" fill="#0B3D91" opacity="0.06"/>
 
   <g filter="url(#e-shadow)">
     <use href="#e-shape" fill="url(#e-body)"/>
@@ -49,7 +49,7 @@
     <ellipse cx="150" cy="200" rx="140" ry="210" fill="url(#e-sheen)"/>
 
     <!-- perforations: everyday breathable foam -->
-    <g fill="#8A6B42" opacity="0.2">
+    <g fill="#0B3D91" opacity="0.2">
       <circle cx="146" cy="286" r="3"/><circle cx="176" cy="296" r="3"/>
       <circle cx="142" cy="326" r="3"/><circle cx="172" cy="338" r="3"/>
       <circle cx="146" cy="372" r="3"/><circle cx="176" cy="384" r="3"/>
@@ -59,7 +59,7 @@
 
     <!-- soft arch line -->
     <path d="M112,452 C120,406 136,372 148,330 C155,304 150,274 145,248"
-          fill="none" stroke="#8A6B42" stroke-opacity="0.22" stroke-width="8" stroke-linecap="round"/>
+          fill="none" stroke="#0B3D91" stroke-opacity="0.22" stroke-width="8" stroke-linecap="round"/>
 
     <!-- heel cushion -->
     <path d="M124,540 C131,580 145,600 160,600 C175,600 189,580 196,540"

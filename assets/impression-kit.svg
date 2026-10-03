@@ -2,20 +2,20 @@
   <defs>
     <linearGradient id="k-tray" x1="0.1" y1="0" x2="0.9" y2="1">
       <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="0.55" stop-color="#F5F1E9"/>
-      <stop offset="1" stop-color="#E7DED0"/>
+      <stop offset="0.55" stop-color="#F5F7FA"/>
+      <stop offset="1" stop-color="#E2E9F2"/>
     </linearGradient>
     <linearGradient id="k-tray2" x1="0.1" y1="0" x2="0.9" y2="1">
       <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="0.55" stop-color="#F5F1E9"/>
-      <stop offset="1" stop-color="#E7DED0"/>
+      <stop offset="0.55" stop-color="#F5F7FA"/>
+      <stop offset="1" stop-color="#E2E9F2"/>
     </linearGradient>
     <linearGradient id="k-cav" x1="0.2" y1="0" x2="0.8" y2="1">
-      <stop offset="0" stop-color="#2F6D5E" stop-opacity="0.5"/>
-      <stop offset="1" stop-color="#2F6D5E" stop-opacity="0.26"/>
+      <stop offset="0" stop-color="#00777C" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#00777C" stop-opacity="0.26"/>
     </linearGradient>
     <filter id="k-soft" x="-25%" y="-25%" width="150%" height="160%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#1A1815" flood-opacity="0.13"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0B3D91" flood-opacity="0.13"/>
     </filter>
     <path id="k-foot"
       d="M0,-52 C9,-52 15,-42 16,-30 C17,-18 16,-10 14,-2 C12,6 10,14 9,24 C8,34 7,42 5,48 C3,53 1,56 0,56 C-1,56 -3,53 -5,48 C-7,42 -8,34 -9,24 C-10,14 -12,6 -14,-2 C-16,-10 -17,-18 -16,-30 C-15,-42 -9,-52 0,-52 Z"/>
@@ -25,49 +25,49 @@
   <g filter="url(#k-soft)">
     <rect x="34" y="52" width="182" height="276" rx="16" fill="url(#k-tray)"/>
   </g>
-  <rect x="34" y="52" width="182" height="276" rx="16" fill="none" stroke="#D6C9B4" stroke-width="1.4"/>
-  <rect x="45" y="63" width="160" height="254" rx="10" fill="#FBF8F2" stroke="#E2D8C8" stroke-width="1"/>
+  <rect x="34" y="52" width="182" height="276" rx="16" fill="none" stroke="#E6F5F7" stroke-width="1.4"/>
+  <rect x="45" y="63" width="160" height="254" rx="10" fill="#F5F7FA" stroke="#E2E9F2" stroke-width="1"/>
 
   <!-- foot cavity, left foot (mirrored) -->
   <g transform="translate(125,196) scale(2.05,2.05) scale(-1,1)" fill="url(#k-cav)">
     <use href="#k-foot"/>
   </g>
   <g transform="translate(125,196) scale(2.05,2.05) scale(-1,1)" fill="none"
-     stroke="#2F6D5E" stroke-opacity="0.35" stroke-width="0.7">
+     stroke="#00777C" stroke-opacity="0.35" stroke-width="0.7">
     <use href="#k-foot"/>
   </g>
   <text x="125" y="316" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif"
-        font-size="10" letter-spacing="1.6" fill="#9C9488">LEFT · KIRI</text>
+        font-size="10" letter-spacing="1.6" fill="#5F6B7A">LEFT · KIRI</text>
 
   <!-- ===== tray 2 ===== -->
   <g filter="url(#k-soft)">
     <rect x="264" y="52" width="182" height="276" rx="16" fill="url(#k-tray2)"/>
   </g>
-  <rect x="264" y="52" width="182" height="276" rx="16" fill="none" stroke="#D6C9B4" stroke-width="1.4"/>
-  <rect x="275" y="63" width="160" height="254" rx="10" fill="#FBF8F2" stroke="#E2D8C8" stroke-width="1"/>
+  <rect x="264" y="52" width="182" height="276" rx="16" fill="none" stroke="#E6F5F7" stroke-width="1.4"/>
+  <rect x="275" y="63" width="160" height="254" rx="10" fill="#F5F7FA" stroke="#E2E9F2" stroke-width="1"/>
 
   <!-- foot cavity, right foot -->
   <g transform="translate(355,196) scale(2.05,2.05)" fill="url(#k-cav)">
     <use href="#k-foot"/>
   </g>
   <g transform="translate(355,196) scale(2.05,2.05)" fill="none"
-     stroke="#2F6D5E" stroke-opacity="0.35" stroke-width="0.7">
+     stroke="#00777C" stroke-opacity="0.35" stroke-width="0.7">
     <use href="#k-foot"/>
   </g>
   <text x="355" y="316" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif"
-        font-size="10" letter-spacing="1.6" fill="#9C9488">RIGHT · KANAN</text>
+        font-size="10" letter-spacing="1.6" fill="#5F6B7A">RIGHT · KANAN</text>
 
   <!-- ===== instruction card ===== -->
   <g filter="url(#k-soft)">
     <rect x="18" y="18" width="132" height="76" rx="8" fill="#FFFFFF" transform="rotate(-4 84 56)"/>
   </g>
   <g transform="rotate(-4 84 56)">
-    <rect x="18" y="18" width="132" height="76" rx="8" fill="#FFFFFF" stroke="#DCD0BE" stroke-width="1.2"/>
-    <rect x="18" y="18" width="5" height="76" rx="2.5" fill="#2F6D5E" opacity="0.7"/>
-    <g stroke="#2F6D5E" stroke-opacity="0.6" stroke-width="2.6" stroke-linecap="round">
+    <rect x="18" y="18" width="132" height="76" rx="8" fill="#FFFFFF" stroke="#E6F5F7" stroke-width="1.2"/>
+    <rect x="18" y="18" width="5" height="76" rx="2.5" fill="#00777C" opacity="0.7"/>
+    <g stroke="#00777C" stroke-opacity="0.6" stroke-width="2.6" stroke-linecap="round">
       <path d="M34,36 L96,36"/>
     </g>
-    <g stroke="#9C9488" stroke-opacity="0.45" stroke-width="2.2" stroke-linecap="round">
+    <g stroke="#5F6B7A" stroke-opacity="0.45" stroke-width="2.2" stroke-linecap="round">
       <path d="M34,50 L130,50"/>
       <path d="M34,62 L118,62"/>
       <path d="M34,74 L104,74"/>
@@ -79,22 +79,22 @@
     <rect x="330" y="18" width="132" height="76" rx="8" fill="#FFFFFF" transform="rotate(4 396 56)"/>
   </g>
   <g transform="rotate(4 396 56)">
-    <rect x="330" y="18" width="132" height="76" rx="8" fill="#FFFFFF" stroke="#DCD0BE" stroke-width="1.2"/>
-    <g fill="#9C9488" opacity="0.5">
+    <rect x="330" y="18" width="132" height="76" rx="8" fill="#FFFFFF" stroke="#E6F5F7" stroke-width="1.2"/>
+    <g fill="#5F6B7A" opacity="0.5">
       <rect x="346" y="32" width="44" height="3.4" rx="1.7"/>
       <rect x="346" y="44" width="82" height="3.4" rx="1.7"/>
       <rect x="346" y="56" width="66" height="3.4" rx="1.7"/>
       <rect x="346" y="68" width="52" height="3.4" rx="1.7"/>
     </g>
-    <rect x="404" y="62" width="40" height="24" rx="3" fill="#2F6D5E" opacity="0.5"/>
+    <rect x="404" y="62" width="40" height="24" rx="3" fill="#00777C" opacity="0.5"/>
     <path d="M412,74 L432,74 M426,68 L432,74 L426,80" fill="none"
           stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 
   <!-- return arrow between the two trays -->
   <g opacity="0.4">
-    <path d="M228,340 L252,340" stroke="#2F6D5E" stroke-width="1.6" stroke-linecap="round"/>
-    <path d="M246,335 L252,340 L246,345" fill="none" stroke="#2F6D5E" stroke-width="1.6"
+    <path d="M228,340 L252,340" stroke="#00777C" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M246,335 L252,340 L246,345" fill="none" stroke="#00777C" stroke-width="1.6"
           stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 </svg>
