@@ -375,6 +375,45 @@
      --------------------------------------------------------- */
 
   /* ---------------------------------------------------------
+     8. PROCESS FILMS
+     --------------------------------------------------------- */
+  function initFilms() {
+    const films = Array.from(document.querySelectorAll('.split-visual-film'));
+    if (!films.length) return;
+
+    // reduced motion: no autoplay, the poster frame stays put
+    if (prefersReduced) {
+      films.forEach((v) => {
+        v.removeAttribute('autoplay');
+        v.pause();
+        v.addEventListener('play', () => v.pause());
+      });
+      return;
+    }
+
+    // Autoplay is blocked until the clip is actually visible, and we stop it
+    // again once it scrolls away — two always-on videos would keep the GPU
+    // busy for no reason on a laptop like this one.
+    films.forEach((v) => {
+      const play = () => {
+        const p = v.play();
+        if (p && p.catch) p.catch(() => {});   // ignore autoplay rejections
+      };
+      if (!('IntersectionObserver' in window)) { play(); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) play();
+          else v.pause();
+        });
+      }, { threshold: 0.25 });
+      io.observe(v);
+    });
+
+    // If the browser refuses to autoplay at all, the poster frame is still a
+    // usable image, so there is nothing to fall back to.
+  }
+
+  /* ---------------------------------------------------------
      9. PRELOADER
      --------------------------------------------------------- */
   function initLoader() {
@@ -431,6 +470,7 @@
     initAnchors();
     initFaq();
     initForm();
+    initFilms();
     initGsap();
     initLoader();
 
