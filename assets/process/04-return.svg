@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 92" role="img" aria-label="Hantar balik kit">
+  <defs>
+    <linearGradient id="p4-surface" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.55" stop-color="#F5F7FA"/>
+      <stop offset="1" stop-color="#E2E9F2"/>
+    </linearGradient>
+    <linearGradient id="p4-teal" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#00B3B8" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#00777C" stop-opacity="0.32"/>
+    </linearGradient>
+    <filter id="p4-soft" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#0B3D91" flood-opacity="0.13"/>
+    </filter>
+  </defs>
+  <!-- a U-turn arrow: a generic right arrow reads as "send out", not "send back".
+       Drawn in deep teal, not bright teal — bright teal on white is only
+       2.58:1 and the arrow disappears once the icon is downscaled. -->
+  <path d="M78,14 L40,14 C30,14 26,22 26,30" fill="none" stroke="#00777C"
+        stroke-width="4.4" stroke-linecap="round"/>
+  <path d="M33,23 L26,31.5 L19,23" fill="none" stroke="#00777C" stroke-width="4.4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#p4-soft)">
+    <rect x="24" y="42" width="72" height="42" rx="6" fill="url(#p4-surface)"/>
+  </g>
+  <rect x="24" y="42" width="72" height="42" rx="6" fill="none" stroke="#E2E9F2" stroke-width="1.4"/>
+  <rect x="55" y="42" width="10" height="42" fill="#00B3B8" opacity="0.26"/>
+
+  <!-- shipping label with a bold barcode stripe -->
+  <rect x="31" y="49" width="40" height="28" rx="3" fill="#FFFFFF" stroke="#E2E9F2" stroke-width="1.1"/>
+  <rect x="36" y="55" width="22" height="4" rx="2" fill="#5F6B7A" opacity="0.4"/>
+  <rect x="36" y="63" width="30" height="4" rx="2" fill="#5F6B7A" opacity="0.4"/>
+  <g fill="#00777C" opacity="0.8">
+    <rect x="36" y="70" width="2.4" height="4.6"/>
+    <rect x="40" y="70" width="1.6" height="4.6"/>
+    <rect x="43.5" y="70" width="3" height="4.6"/>
+    <rect x="48.5" y="70" width="2" height="4.6"/>
+  </g>
+</svg>

@@ -663,11 +663,14 @@ p { margin: 0; }
 .process-list { border-top: 1px solid var(--line); }
 .process-row {
   display: grid;
-  grid-template-columns: 4.5rem minmax(0,1fr) minmax(0,1.1fr);
-  gap: clamp(1rem, 4vw, 3.5rem);
-  align-items: baseline;
-  padding-block: clamp(1.5rem, 4vh, 2.75rem);
-  border-bottom: 1px solid var(--line);
+  /* visual | number | name | description. The name column is deliberately
+     narrow so the description starts near it instead of being pushed to the
+     far right, which left a wide dead gap in the middle of every row. */
+  grid-template-columns: 92px 3.25rem minmax(0, 0.7fr) minmax(0, 1.5fr);
+  gap: clamp(0.85rem, 2.2vw, 2rem);
+  align-items: center;
+  padding-block: clamp(1.4rem, 3.4vh, 2.35rem);
+  border-bottom: 1px solid #D5DFEC;
   position: relative;
   overflow: hidden;
   transition: padding-inline 0.5s var(--ease-out-expo);
@@ -684,6 +687,26 @@ p { margin: 0; }
 }
 .process-row:hover { padding-inline: clamp(0.5rem, 2vw, 1.75rem); }
 .process-row:hover::before { transform: scaleX(1); }
+
+/* Step illustration on a soft chip: without it the light artwork floats
+   untethered next to the number. */
+.process-visual {
+  width: 92px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #FFFFFF, var(--light-blue));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 7px;
+}
+.process-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
 
 .process-num {
   font-family: var(--font-display);
@@ -1076,8 +1099,20 @@ p { margin: 0; }
     gap: var(--s-3);
   }
   .nav.is-open a { font-size: 1.6rem; font-family: var(--font-display); }
-  .process-row { grid-template-columns: 3rem minmax(0,1fr); }
-  .process-desc { grid-column: 2; }
+  /* Two columns on small screens: chip + number, then the step name and its
+     description stacked in the third column. Placing the description by grid
+     line (rather than auto-flow) is what keeps it out of the 56px chip column —
+     auto-flow dropped the wrapper into column 1 and wrapped the copy one word
+     per line. */
+  .process-row {
+    grid-template-columns: 56px 2.5rem minmax(0, 1fr);
+    align-items: start;
+    row-gap: 0.5rem;
+  }
+  .process-visual { grid-column: 1; grid-row: 1; width: 56px; height: 48px; padding: 5px; }
+  .process-num { grid-column: 2; grid-row: 1; }
+  .process-name { grid-column: 3; grid-row: 1; }
+  .process-body { grid-column: 3; grid-row: 2; }
   .ftr-grid { grid-template-columns: 1fr; }
   .hero-meta { gap: var(--s-3); }
   .wa-float-label { display: none; }
