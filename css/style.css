@@ -334,6 +334,45 @@ p { margin: 0; }
   padding-block: clamp(7rem, 16vh, 11rem) clamp(4rem, 10vh, 7rem);
 }
 
+/* Cinematic hero background — product photo with gradient overlay */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.05);
+  animation: heroZoom 20s ease-in-out infinite alternate;
+}
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.12); }
+}
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(245, 247, 250, 0.82) 0%,
+      rgba(245, 247, 250, 0.65) 40%,
+      rgba(245, 247, 250, 0.75) 70%,
+      rgba(245, 247, 250, 0.92) 100%
+    ),
+    linear-gradient(90deg,
+      rgba(245, 247, 250, 0.88) 0%,
+      rgba(245, 247, 250, 0.55) 50%,
+      rgba(245, 247, 250, 0.35) 100%
+    );
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-img { animation: none; transform: scale(1.05); }
+}
+
 /* Atmospheric light blooms — bright cinematic */
 .hero-bloom {
   position: absolute;
@@ -393,7 +432,13 @@ p { margin: 0; }
   width: 100%;
 }
 
-.hero-copy { max-width: 40ch; }
+/* Ensure text readability over cinematic background */
+.hero-copy {
+  position: relative;
+  z-index: 3;
+  max-width: 40ch;
+  text-shadow: 0 1px 2px rgba(245, 247, 250, 0.8), 0 0 20px rgba(245, 247, 250, 0.6);
+}
 
 .hero-title {
   font-size: var(--t-hero);
