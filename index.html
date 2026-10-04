@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
-<link rel="stylesheet" href="css/style.css?v=6">
+<link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body class="is-loading">
 
@@ -63,7 +63,12 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero">
   <div class="hero-bg" aria-hidden="true">
-    <img src="assets/hero-product.jpg" alt="" class="hero-bg-img">
+    <picture>
+      <source media="(max-width: 768px)" srcset="assets/hero-product-mobile.webp" type="image/webp">
+      <source media="(max-width: 1200px)" srcset="assets/hero-product-tablet.webp" type="image/webp">
+      <source srcset="assets/hero-product-desktop.webp" type="image/webp">
+      <img src="assets/hero-product.jpg" alt="" class="hero-bg-img" loading="eager" fetchpriority="high">
+    </picture>
     <div class="hero-bg-overlay"></div>
   </div>
   <div class="hero-bloom hero-bloom--1" aria-hidden="true"></div>

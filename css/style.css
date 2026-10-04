@@ -373,6 +373,49 @@ p { margin: 0; }
   .hero-bg-img { animation: none; transform: scale(1.05); }
 }
 
+/* Mobile hero optimizations */
+@media (max-width: 768px) {
+  .hero-bg-img {
+    object-position: center 30%;
+  }
+  .hero-bg-overlay {
+    background:
+      linear-gradient(180deg,
+        rgba(245, 247, 250, 0.88) 0%,
+        rgba(245, 247, 250, 0.72) 40%,
+        rgba(245, 247, 250, 0.82) 70%,
+        rgba(245, 247, 250, 0.95) 100%
+      ),
+      linear-gradient(90deg,
+        rgba(245, 247, 250, 0.92) 0%,
+        rgba(245, 247, 250, 0.65) 50%,
+        rgba(245, 247, 250, 0.45) 100%
+      );
+  }
+  .hero {
+    min-height: 100svh;
+    padding-block: clamp(5rem, 12vh, 8rem) clamp(2rem, 6vh, 4rem);
+  }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: var(--s-4);
+  }
+  .hero-visual {
+    max-height: 40vh;
+    order: -1;
+  }
+  .hero-copy {
+    text-align: center;
+    max-width: 100%;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-meta {
+    justify-content: center;
+  }
+}
+
 /* Atmospheric light blooms — bright cinematic */
 .hero-bloom {
   position: absolute;
