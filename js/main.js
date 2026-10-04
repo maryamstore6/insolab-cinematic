@@ -18,11 +18,11 @@
     if (prefersReduced || typeof Lenis === 'undefined') return null;
 
     const instance = new Lenis({
-      duration: 1.15,
+      duration: 1.3,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.6,
+      wheelMultiplier: 1.1,
+      touchMultiplier: 1.8,
       infinite: false
     });
 
@@ -30,7 +30,7 @@
     if (window.ScrollTrigger) {
       instance.on('scroll', ScrollTrigger.update);
       gsap.ticker.add((time) => instance.raf(time * 1000));
-      gsap.ticker.lagSmoothing(0);
+      gsap.ticker.lagSmoothing(500, 33);
     } else {
       function raf(time) {
         instance.raf(time);
@@ -53,7 +53,7 @@
         const target = document.querySelector(id);
         if (!target) return;
         e.preventDefault();
-        if (lenis) lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+        if (lenis) lenis.scrollTo(target, { offset: -80, duration: 1.6 });
         else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         closeNav();
       });
@@ -318,9 +318,9 @@
       if (heroInner) {
         gsap.to(heroInner, {
           y: -70,
-          opacity: 0.25,
+          opacity: 0.45,
           ease: 'none',
-          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.3 }
         });
       }
       const heroVisual = document.querySelector('.hero-visual');
@@ -328,7 +328,27 @@
         gsap.to(heroVisual, {
           y: -140,
           ease: 'none',
-          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.2 }
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.5 }
+        });
+      }
+      /* ---- hero background: zoom out + parallax on scroll ---- */
+      const heroBg = document.querySelector('.hero-bg-img');
+      if (heroBg) {
+        gsap.fromTo(heroBg,
+          { scale: 1.15 },
+          {
+            scale: 1.0,
+            ease: 'none',
+            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.5 }
+          }
+        );
+      }
+      const heroOverlay = document.querySelector('.hero-bg-overlay');
+      if (heroOverlay) {
+        gsap.to(heroOverlay, {
+          opacity: 0.4,
+          ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.5 }
         });
       }
     }
@@ -345,17 +365,7 @@
       });
     }
 
-    /* ---- product cards: staggered lift ---- */
-    if (!reduced) {
-      gsap.from('.product-card', {
-        opacity: 0,
-        y: 44,
-        duration: 1.05,
-        ease: 'expo.out',
-        stagger: 0.12,
-        scrollTrigger: { trigger: '.product-grid', start: 'top 84%', once: true }
-      });
-    }
+    /* ---- product cards: handled by data-reveal-group above ---- */
 
     /* ---- section headings: gentle rise ---- */
     if (!reduced) {
