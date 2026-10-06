@@ -67,7 +67,7 @@ function init() {
   rim.position.set(-5, 1.5, -3);
   scene.add(rim);
 
-  const fill = new THREE.DirectionalLight(0xbfd4f0, 0.55);
+  const fill = new THREE.DirectionalLight(0xbfd4f0, 0.85);
   fill.position.set(-2, -3, 4);
   scene.add(fill);
 
@@ -232,6 +232,8 @@ function init() {
     color: 0xFFFFFF,             // the texture carries the colour
     roughness: 0.55,
     metalness: 0.0,
+    emissive: 0x0A2A5C,          // lift the shadow side so the perforation reads
+    emissiveIntensity: 0.55,
     side: THREE.FrontSide
   });
 
@@ -251,9 +253,9 @@ function init() {
   perfCtx.fillStyle = '#0B3D91';
   perfCtx.fillRect(0, 0, 512, 512);
 
-  perfCtx.fillStyle = '#062A66';
-  const dotSpacing = 16;
-  const dotRadius = 3;
+  perfCtx.fillStyle = '#031B45';
+  const dotSpacing = 26;
+  const dotRadius = 5;
   for (let y = 0; y < 512; y += dotSpacing) {
     for (let x = 0; x < 512; x += dotSpacing) {
       const offsetX = (y / dotSpacing) % 2 === 0 ? 0 : dotSpacing / 2;
@@ -266,7 +268,7 @@ function init() {
   const perfTexture = new THREE.CanvasTexture(perfCanvas);
   perfTexture.wrapS = THREE.RepeatWrapping;
   perfTexture.wrapT = THREE.RepeatWrapping;
-  perfTexture.repeat.set(4, 8);
+  perfTexture.repeat.set(2, 4);
   // Without an explicit colour space three.js treats the canvas as linear
   // data, so the brand blue renders washed-out grey on screen.
   perfTexture.colorSpace = THREE.SRGBColorSpace;
@@ -301,7 +303,7 @@ function init() {
     const vFov = (cam.fov * Math.PI) / 180;
     const visH = 2 * Math.tan(vFov / 2) * cam.position.z;
     const visW = visH * cam.aspect;
-    return 0.86 * Math.min(visW, visH) / (2 * radius);
+    return 0.88 * Math.min(visW, visH) / (2 * radius);
   }
 
   // Orient so the TOP (foot-facing) surface faces the camera. The insole lies
@@ -309,7 +311,7 @@ function init() {
   insoleMesh.rotation.x = Math.PI / 2 - 0.32;
   insoleMesh.rotation.z = -0.30;
   insoleMesh.rotation.y = 0.15;
-  insoleMesh.position.set(0, -0.06, 0);
+  insoleMesh.position.set(0, 0.04, 0);
   insoleMesh.scale.setScalar(fitScaleFor(camera));
 
   scene.add(insoleMesh);
@@ -460,7 +462,7 @@ function init() {
       // Gentle sway: keep the top face toward the camera and stay readable
       insoleMesh.rotation.y = 0.15 + Math.sin(t * 0.35) * 0.18 + pointer.x * 0.30;
       insoleMesh.rotation.x = Math.PI / 2 - 0.32 + Math.sin(t * 0.20) * 0.035 + pointer.y * 0.08;
-      insoleMesh.position.y = -0.06 + Math.sin(t * 0.5) * 0.035;
+      insoleMesh.position.y = 0.04 + Math.sin(t * 0.5) * 0.035;
 
       wireframe.rotation.copy(insoleMesh.rotation);
       wireframe.position.copy(insoleMesh.position);
