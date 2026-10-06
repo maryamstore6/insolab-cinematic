@@ -42,7 +42,7 @@ function init() {
   renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
   renderer.setClearColor(0x000000, 0);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 0.95;
+  renderer.toneMappingExposure = 0.85;
 
   const scene = new THREE.Scene();
 
@@ -88,15 +88,29 @@ function init() {
   };
 
   function insolePoint(u, v) {
+    // Width profile across the length. Round the toe off (taper over the last
+    // 18%) so the silhouette reads as a footbed rather than a squared blank.
     const widthProfile = (t) => {
+      let w;
       if (t < 0.3) {
         const s = t / 0.3;
-        return INSOLE.widthHeel + (INSOLE.widthMid - INSOLE.widthHeel) * s;
+        w = INSOLE.widthHeel + (INSOLE.widthMid - INSOLE.widthHeel) * s;
       } else {
         const s = (t - 0.3) / 0.7;
         const smooth = s * s * (3 - 2 * s);
-        return INSOLE.widthMid + (INSOLE.widthFore - INSOLE.widthMid) * smooth;
+        w = INSOLE.widthMid + (INSOLE.widthFore - INSOLE.widthMid) * smooth;
       }
+      // rounded toe
+      if (t > 0.82) {
+        const k = (t - 0.82) / 0.18;
+        w *= 1 - 0.45 * (k * k);
+      }
+      // slightly rounded heel too
+      if (t < 0.12) {
+        const k = 1 - t / 0.12;
+        w *= 1 - 0.22 * (k * k);
+      }
+      return w;
     };
 
     const halfWidth = widthProfile(u) / 2;
@@ -215,8 +229,8 @@ function init() {
   /* ---------- materials ---------- */
 
   const topMaterial = new THREE.MeshStandardMaterial({
-    color: 0x3F7FBE,
-    roughness: 0.72,
+    color: 0xFFFFFF,             // the texture carries the colour
+    roughness: 0.55,
     metalness: 0.0,
     side: THREE.FrontSide
   });
@@ -232,10 +246,12 @@ function init() {
   perfCanvas.width = 512;
   perfCanvas.height = 512;
   const perfCtx = perfCanvas.getContext('2d');
-  perfCtx.fillStyle = '#3F7FBE';
+  // Brand navy as the base. Lighting + ACES tone mapping lighten this a lot,
+  // so start saturated or the surface lands on grey.
+  perfCtx.fillStyle = '#0B3D91';
   perfCtx.fillRect(0, 0, 512, 512);
 
-  perfCtx.fillStyle = '#2A5F8F';
+  perfCtx.fillStyle = '#062A66';
   const dotSpacing = 16;
   const dotRadius = 3;
   for (let y = 0; y < 512; y += dotSpacing) {
@@ -251,6 +267,10 @@ function init() {
   perfTexture.wrapS = THREE.RepeatWrapping;
   perfTexture.wrapT = THREE.RepeatWrapping;
   perfTexture.repeat.set(4, 8);
+  // Without an explicit colour space three.js treats the canvas as linear
+  // data, so the brand blue renders washed-out grey on screen.
+  perfTexture.colorSpace = THREE.SRGBColorSpace;
+  perfTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
   topMaterial.map = perfTexture;
 
   const insoleMesh = new THREE.Mesh(fullGeometry, [topMaterial, bottomMaterial]);
@@ -263,20 +283,63 @@ function init() {
   fullGeometry.addGroup(topFaceCount, bottomFaceCount, 1);
   fullGeometry.addGroup(topFaceCount + bottomFaceCount, sideFaceCount, 1);
 
-  insoleMesh.rotation.x = -Math.PI / 2 + 0.15;
-  insoleMesh.rotation.z = 0.1;
-  insoleMesh.position.set(0, -0.3, -0.5);
+  // Recentre the geometry on its own bounding box so the mesh rotates about
+  // its middle. Built in place, the insole spans z 0..2.8 and y 0..~0.55, so
+  // any rotation swings the heel cup out of frame.
+  fullGeometry.computeBoundingBox();
+  const bb = fullGeometry.boundingBox;
+  const centre = new THREE.Vector3();
+  bb.getCenter(centre);
+  fullGeometry.translate(-centre.x, -centre.y, -centre.z);
+  fullGeometry.computeBoundingSphere();
+
+  // Fit by bounding SPHERE, not box: the insole's length is on z and it
+  // spins about y, so an axis-aligned fit is wrong for every angle but one.
+  const radius = fullGeometry.boundingSphere.radius;
+
+  function fitScaleFor(cam) {
+    const vFov = (cam.fov * Math.PI) / 180;
+    const visH = 2 * Math.tan(vFov / 2) * cam.position.z;
+    const visW = visH * cam.aspect;
+    return 0.86 * Math.min(visW, visH) / (2 * radius);
+  }
+
+  // Orient so the TOP (foot-facing) surface faces the camera. The insole lies
+  // in the XZ plane, so a negative tilt here shows the underside instead.
+  insoleMesh.rotation.x = Math.PI / 2 - 0.32;
+  insoleMesh.rotation.z = -0.30;
+  insoleMesh.rotation.y = 0.15;
+  insoleMesh.position.set(0, -0.06, 0);
+  insoleMesh.scale.setScalar(fitScaleFor(camera));
 
   scene.add(insoleMesh);
+
+  // Grounded studio shadow so the insole does not look like it is floating
+  const floorGeo = new THREE.PlaneGeometry(6, 6);
+  const floorMat = new THREE.ShadowMaterial({ opacity: 0.18 });
+  const floor = new THREE.Mesh(floorGeo, floorMat);
+  floor.rotation.x = -Math.PI / 2;
+  floor.position.y = -0.95;
+  floor.receiveShadow = true;
+  scene.add(floor);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  key.castShadow = true;
+  key.shadow.mapSize.set(1024, 1024);
+  key.shadow.camera.near = 0.5;
+  key.shadow.camera.far = 20;
+  key.shadow.radius = 4;
+  insoleMesh.castShadow = true;
 
   /* ---------- wireframe overlay ---------- */
   const wireGeo = new THREE.WireframeGeometry(fullGeometry);
   const wireMat = new THREE.LineBasicMaterial({
-    color: 0x00B3B8,
+    color: 0x0B3D91,
     transparent: true,
-    opacity: 0.08
+    opacity: 0.10
   });
   const wireframe = new THREE.LineSegments(wireGeo, wireMat);
+  wireframe.scale.copy(insoleMesh.scale);
   wireframe.rotation.copy(insoleMesh.rotation);
   wireframe.position.copy(insoleMesh.position);
   scene.add(wireframe);
@@ -319,6 +382,13 @@ function init() {
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
     renderer.setSize(w, h, false);
+
+    // Re-fit the insole whenever the panel aspect changes, otherwise it
+    // overflows on narrow/wide panels.
+    if (insoleMesh) {
+      insoleMesh.scale.setScalar(fitScaleFor(camera));
+      wireframe.scale.copy(insoleMesh.scale);
+    }
   }
   window.addEventListener('resize', resize, { passive: true });
 
@@ -387,9 +457,10 @@ function init() {
     const t = clock.elapsedTime;
 
     if (!reducedMotion) {
-      insoleMesh.rotation.y = t * 0.15 + pointer.x * 0.3;
-      insoleMesh.rotation.x = -Math.PI / 2 + 0.15 + Math.sin(t * 0.2) * 0.05 + pointer.y * 0.1;
-      insoleMesh.position.y = -0.3 + Math.sin(t * 0.5) * 0.05;
+      // Gentle sway: keep the top face toward the camera and stay readable
+      insoleMesh.rotation.y = 0.15 + Math.sin(t * 0.35) * 0.18 + pointer.x * 0.30;
+      insoleMesh.rotation.x = Math.PI / 2 - 0.32 + Math.sin(t * 0.20) * 0.035 + pointer.y * 0.08;
+      insoleMesh.position.y = -0.06 + Math.sin(t * 0.5) * 0.035;
 
       wireframe.rotation.copy(insoleMesh.rotation);
       wireframe.position.copy(insoleMesh.position);
@@ -399,7 +470,7 @@ function init() {
         particles.position.y = Math.sin(t * 0.3) * 0.1;
       }
     } else {
-      insoleMesh.rotation.set(-Math.PI / 2 + 0.15, 0.3, 0.1);
+      insoleMesh.rotation.set(-Math.PI / 2 + 0.30, 0.55, 0.14);
       wireframe.rotation.copy(insoleMesh.rotation);
     }
 
@@ -416,6 +487,7 @@ function init() {
 
   /* ---------- teardown hook ---------- */
   window.__insolabHero3D = {
+
     stop() { running = false; },
     dispose() {
       running = false;
