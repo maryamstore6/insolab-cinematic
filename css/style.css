@@ -1174,7 +1174,9 @@ p { margin: 0; }
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.75rem 1.15rem 0.75rem 0.85rem;
+  /* Collapsed to an icon bubble by default. Expanded, the pill sits on top of
+     the product "Order" buttons and blocks them on smaller screens. */
+  padding: 0.85rem;
   border-radius: var(--radius-pill);
   background: var(--surface);
   border: 1px solid var(--line);
@@ -1185,8 +1187,21 @@ p { margin: 0; }
   will-change: transform;
 }
 .wa-float:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 18px 44px -16px rgba(11, 61, 145,0.36); }
-.wa-float svg { width: 20px; height: 20px; fill: #25D366; flex-shrink: 0; }
-.wa-float-label { white-space: nowrap; }
+.wa-float svg { width: 22px; height: 22px; fill: #25D366; flex-shrink: 0; }
+.wa-float-label {
+  white-space: nowrap;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-width 0.45s var(--ease-out-expo), opacity 0.3s, margin 0.45s;
+}
+/* Reveal the phone number on hover/focus, where it cannot block a tap. */
+.wa-float:hover .wa-float-label,
+.wa-float:focus-visible .wa-float-label {
+  max-width: 12rem;
+  opacity: 1;
+  margin-left: 0.15rem;
+}
 
 /* ---------- 19. SCROLL PROGRESS ---------- */
 .progress {
@@ -1200,7 +1215,11 @@ p { margin: 0; }
 }
 
 /* ---------- 20. REVEAL PRIMITIVES ---------- */
-[data-reveal] { opacity: 0; transform: translateY(28px); }
+/* Hidden by default so GSAP can animate them in. The .js-reveal class is
+   added by JS as soon as it boots — if JS fails the content stays visible
+   instead of the whole page rendering blank. */
+[data-reveal] { opacity: 1; transform: none; }
+.js-reveal [data-reveal] { opacity: 0; transform: translateY(28px); }
 .no-motion [data-reveal] { opacity: 1 !important; transform: none !important; }
 
 /* ---------- 21. RESPONSIVE ---------- */

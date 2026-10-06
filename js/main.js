@@ -253,6 +253,16 @@
       // Belt-and-braces: if the intro tween was interrupted (tab backgrounded
       // mid-load, animation frame starved) force the final state.
       setTimeout(revealHero, 4000);
+      // Same safety net for the scroll reveals: anything still hidden after
+      // the intro must not stay invisible.
+      setTimeout(() => {
+        document.querySelectorAll('[data-reveal]').forEach((el) => {
+          if (getComputedStyle(el).opacity === '0') {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+          }
+        });
+      }, 6000);
     } else {
       gsap.set('.hero .line-inner', { y: 0 });
     }
@@ -486,6 +496,12 @@
      --------------------------------------------------------- */
   function boot() {
     if (prefersReduced) document.documentElement.classList.add('no-motion');
+
+    // Opt in to the hidden-until-revealed state only now that JS is running.
+    // The CSS default is visible, so a failed script leaves the page readable.
+    if (typeof gsap !== 'undefined') {
+      document.documentElement.classList.add('js-reveal');
+    }
 
     lenis = initLenis();
     if (lenis) lenis.stop(); // hold scroll until loader clears
