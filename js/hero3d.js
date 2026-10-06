@@ -42,7 +42,7 @@ function init() {
   renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
   renderer.setClearColor(0x000000, 0);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.1;
+  renderer.toneMappingExposure = 0.95;
 
   const scene = new THREE.Scene();
 
@@ -56,18 +56,18 @@ function init() {
   camera.lookAt(0, 0, 0);
 
   /* ---------- lighting: soft studio ---------- */
-  const hemi = new THREE.HemisphereLight(0xffffff, 0xe6f5f7, 1.35);
+  const hemi = new THREE.HemisphereLight(0xffffff, 0xe6f5f7, 0.85);
   scene.add(hemi);
 
-  const key = new THREE.DirectionalLight(0xffffff, 2.0);
+  const key = new THREE.DirectionalLight(0xffffff, 1.5);
   key.position.set(4, 6, 5);
   scene.add(key);
 
-  const rim = new THREE.DirectionalLight(0x00b3b8, 1.6);
+  const rim = new THREE.DirectionalLight(0x00b3b8, 1.1);
   rim.position.set(-5, 1.5, -3);
   scene.add(rim);
 
-  const fill = new THREE.DirectionalLight(0xbfd4f0, 0.9);
+  const fill = new THREE.DirectionalLight(0xbfd4f0, 0.55);
   fill.position.set(-2, -3, 4);
   scene.add(fill);
 
