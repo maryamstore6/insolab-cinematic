@@ -52,7 +52,8 @@ function init() {
     0.1,
     100
   );
-  camera.position.set(0, 0.15, 5.4);
+  camera.position.set(0, 0.35, 4.3);
+  camera.lookAt(0, 0, 0);
 
   /* ---------- lighting: soft studio ---------- */
   const hemi = new THREE.HemisphereLight(0xffffff, 0xe6f5f7, 1.35);
@@ -215,7 +216,7 @@ function init() {
 
   const topMaterial = new THREE.MeshStandardMaterial({
     color: 0x3F7FBE,
-    roughness: 0.75,
+    roughness: 0.72,
     metalness: 0.0,
     side: THREE.FrontSide
   });
@@ -402,8 +403,9 @@ function init() {
       wireframe.rotation.copy(insoleMesh.rotation);
     }
 
+    // Camera parallax
     camera.position.x += (pointer.x * 0.35 - camera.position.x) * 0.03;
-    camera.position.y += (0.15 - pointer.y * 0.2 - camera.position.y) * 0.03;
+    camera.position.y += (0.35 - pointer.y * 0.20 - camera.position.y) * 0.03;
     camera.lookAt(0, 0, 0);
 
     renderer.render(scene, camera);

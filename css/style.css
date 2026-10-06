@@ -366,15 +366,15 @@ p { margin: 0; }
   inset: 0;
   background:
     linear-gradient(180deg,
-      rgba(245, 247, 250, 0.82) 0%,
-      rgba(245, 247, 250, 0.65) 40%,
-      rgba(245, 247, 250, 0.75) 70%,
-      rgba(245, 247, 250, 0.92) 100%
+      rgba(245, 247, 250, 0.55) 0%,
+      rgba(245, 247, 250, 0.28) 40%,
+      rgba(245, 247, 250, 0.42) 70%,
+      rgba(245, 247, 250, 0.72) 100%
     ),
     linear-gradient(90deg,
-      rgba(245, 247, 250, 0.88) 0%,
-      rgba(245, 247, 250, 0.55) 50%,
-      rgba(245, 247, 250, 0.35) 100%
+      rgba(245, 247, 250, 0.72) 0%,
+      rgba(245, 247, 250, 0.30) 50%,
+      rgba(245, 247, 250, 0.12) 100%
     );
 }
 @media (prefers-reduced-motion: reduce) {
@@ -393,39 +393,50 @@ p { margin: 0; }
   .hero-bg-overlay {
     background:
       linear-gradient(180deg,
-        rgba(245, 247, 250, 0.88) 0%,
-        rgba(245, 247, 250, 0.72) 40%,
-        rgba(245, 247, 250, 0.82) 70%,
-        rgba(245, 247, 250, 0.95) 100%
+        rgba(245, 247, 250, 0.72) 0%,
+        rgba(245, 247, 250, 0.45) 40%,
+        rgba(245, 247, 250, 0.60) 70%,
+        rgba(245, 247, 250, 0.88) 100%
       ),
       linear-gradient(90deg,
-        rgba(245, 247, 250, 0.92) 0%,
-        rgba(245, 247, 250, 0.65) 50%,
-        rgba(245, 247, 250, 0.45) 100%
+        rgba(245, 247, 250, 0.82) 0%,
+        rgba(245, 247, 250, 0.45) 50%,
+        rgba(245, 247, 250, 0.25) 100%
       );
   }
   .hero {
-    min-height: 100svh;
-    padding-block: clamp(5rem, 12vh, 8rem) clamp(2rem, 6vh, 4rem);
+    min-height: auto;
+    padding-block: clamp(4.5rem, 10vh, 6rem) clamp(1.5rem, 4vh, 2.5rem);
   }
   .hero-inner {
     grid-template-columns: 1fr;
-    gap: var(--s-4);
+    gap: var(--s-3);
   }
+  /* Copy first so the headline + CTA are above the fold; the 3D panel follows */
   .hero-visual {
-    max-height: 40vh;
-    order: -1;
+    height: clamp(240px, 34vh, 340px);
+    max-height: none;
+    aspect-ratio: auto;
+    margin-top: var(--s-3);
   }
   .hero-copy {
-    text-align: center;
+    text-align: left;
     max-width: 100%;
   }
+  .hero-title { font-size: clamp(2rem, 9vw, 2.9rem); }
+  .hero-sub { font-size: 1rem; margin-top: var(--s-2); }
   .hero-actions {
-    justify-content: center;
+    margin-top: var(--s-3);
+    gap: 0.6rem;
   }
+  .hero-actions .btn { flex: 1 1 auto; justify-content: center; }
   .hero-meta {
-    justify-content: center;
+    margin-top: var(--s-3);
+    padding-top: var(--s-3);
+    gap: 1.25rem;
   }
+  .hero-meta-num { font-size: 1.5rem; }
+  .scroll-hint { display: none; }
 }
 
 /* Atmospheric light blooms — bright cinematic */
@@ -572,9 +583,23 @@ p { margin: 0; }
   height: clamp(340px, 60vh, 620px);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: linear-gradient(160deg, var(--surface) 0%, var(--paper-warm) 55%, var(--surface-alt) 100%);
-  box-shadow: 0 40px 90px -40px rgba(11, 61, 145,0.28), 0 2px 0 rgba(255,255,255,0.6) inset;
-  border: 1px solid rgba(255,255,255,0.7);
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 30%, rgba(230, 245, 247, 0.9), transparent 70%),
+    linear-gradient(160deg, #E8F1FA 0%, #D8E8F4 45%, #EAF3F8 100%);
+  box-shadow: 0 40px 90px -40px rgba(11, 61, 145, 0.35), 0 2px 0 rgba(255, 255, 255, 0.6) inset;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+/* Soft floor shadow so the 3D insole reads as grounded, not floating */
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  left: 50%; bottom: 12%;
+  width: 58%; height: 34px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(11, 61, 145, 0.20), transparent 72%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 1;
 }
 .hero-visual-tag {
   position: absolute;
@@ -583,12 +608,13 @@ p { margin: 0; }
   font-size: var(--t-micro);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-muted);
-  background: rgba(255,255,255,0.72);
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
   padding: 0.5rem 0.9rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(255,255,255,0.8);
+  border: 1px solid rgba(11, 61, 145, 0.18);
+  box-shadow: 0 4px 14px -6px rgba(11, 61, 145, 0.35);
 }
 
 .scroll-hint {

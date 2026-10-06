@@ -217,7 +217,18 @@
      7. GSAP CHOREOGRAPHY
      --------------------------------------------------------- */
   function initGsap() {
-    if (typeof gsap === 'undefined') return;
+    // Safety: the hero headline starts hidden (translateY 115%) so GSAP can
+    // slide it in. If GSAP never loads (CDN blocked, slow net, JS error) the
+    // H1 would stay invisible forever — reveal it unconditionally first.
+    const revealHero = () => {
+      document.querySelectorAll('.hero .line-inner').forEach((el) => {
+        el.style.transform = 'none';
+      });
+      document.querySelectorAll('.hero-sub, .hero-actions, .hero-meta, .hero-visual')
+        .forEach((el) => { el.style.opacity = '1'; });
+    };
+
+    if (typeof gsap === 'undefined') { revealHero(); return; }
     if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
 
     const reduced = prefersReduced;
@@ -238,6 +249,10 @@
         y: 60, opacity: 0, scale: 0.96, duration: 1.5, ease: 'expo.out', delay: 0.35
       });
       gsap.from('.hero .scroll-hint', { opacity: 0, duration: 1, delay: 1.4 });
+
+      // Belt-and-braces: if the intro tween was interrupted (tab backgrounded
+      // mid-load, animation frame starved) force the final state.
+      setTimeout(revealHero, 4000);
     } else {
       gsap.set('.hero .line-inner', { y: 0 });
     }
