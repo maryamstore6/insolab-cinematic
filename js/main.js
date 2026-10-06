@@ -69,7 +69,11 @@
 
     function onScroll() {
       const y = window.scrollY || window.pageYOffset;
-      if (hdr) hdr.classList.toggle('is-stuck', y > 40);
+      const stuck = y > 40;
+      if (hdr) hdr.classList.toggle('is-stuck', stuck);
+      // The desktop nav is a sibling of .hdr (so the mobile overlay is not
+      // clamped by the header's transform), so it needs the same stuck state.
+      document.documentElement.classList.toggle('hdr-stuck', stuck);
 
       if (progress) {
         const max = document.documentElement.scrollHeight - window.innerHeight;
@@ -87,21 +91,47 @@
      --------------------------------------------------------- */
   function closeNav() {
     const nav = document.querySelector('.nav');
+    const toggle = document.querySelector('.nav-toggle');
     if (nav) nav.classList.remove('is-open');
     document.body.classList.remove('nav-open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
     if (lenis) lenis.start();
+  }
+
+  function openNav() {
+    const nav = document.querySelector('.nav');
+    const toggle = document.querySelector('.nav-toggle');
+    if (!nav) return;
+    nav.classList.add('is-open');
+    document.body.classList.add('nav-open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    if (lenis) lenis.stop();
   }
 
   function initNav() {
     const toggle = document.querySelector('.nav-toggle');
+    const closeBtn = document.querySelector('.nav-close');
     const nav = document.querySelector('.nav');
     if (!toggle || !nav) return;
 
     toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
-      document.body.classList.toggle('nav-open', open);
-      if (lenis) open ? lenis.stop() : lenis.start();
+      nav.classList.contains('is-open') ? closeNav() : openNav();
     });
+
+    // Without this the only way out of the overlay was re-tapping the
+    // hamburger, which sat underneath the panel.
+    if (closeBtn) closeBtn.addEventListener('click', closeNav);
+
+    // Escape closes the menu
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) closeNav();
+    });
+
+    // Keep aria-expanded honest if the panel is closed by any other route
+    // (anchor click, resize past the breakpoint).
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 760 && nav.classList.contains('is-open')) closeNav();
+    }, { passive: true });
   }
 
   /* ---------------------------------------------------------

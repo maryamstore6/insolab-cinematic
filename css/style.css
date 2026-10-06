@@ -250,11 +250,26 @@ p { margin: 0; }
 }
 .brand span { color: var(--accent); }
 
+/* Desktop: the nav is now a sibling of .hdr, so it must be positioned and
+   sized to line up with the header row itself. box-sizing: content-box +
+   height matching .brand img + the same padding-block as .hdr keeps the two
+   rows aligned; html.hdr-stuck mirrors the header's shrink on scroll. */
 .nav {
+  position: fixed;
+  top: 0;
+  right: var(--gutter);
+  z-index: 9001;
   display: flex;
   align-items: center;
   gap: clamp(1rem, 2.5vw, 2.25rem);
+  box-sizing: content-box;
+  height: 46px;
+  padding-block: 1.5rem;
+  transition: padding 0.45s var(--ease-out-quint);
 }
+html.hdr-stuck .nav { padding-block: 0.85rem; }
+.nav-close { display: none; }
+.nav-brand { display: none; }
 .nav a {
   font-size: var(--t-small);
   font-weight: 500;
@@ -1236,20 +1251,89 @@ p { margin: 0; }
 @media (max-width: 760px) {
   .nav { display: none; }
   .nav-toggle { display: flex; }
+
+  /* The panel is rendered as a SIBLING of .hdr, not a child. .hdr carries
+     transform: translateZ(0) + will-change + backdrop-filter, and any of
+     those makes it the containing block for a fixed-position descendant —
+     the overlay was being clamped to the header's ~92px height. */
   .nav.is-open {
     display: flex;
     position: fixed;
-    inset: 0;
-    z-index: 8999;
-    background: rgba(245, 247, 250, 0.97);
+    top: 0; right: 0; bottom: 0; left: 0;
+    width: 100%;
+    height: 100dvh;
+    box-sizing: border-box;
+    transform: none;
+    z-index: 9500;                 /* above .hdr (9000) so the ✕ is reachable */
+    background: rgba(245, 247, 250, 0.985);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
-    padding: var(--gutter);
-    gap: var(--s-3);
+    gap: 0;
+    padding: 5rem var(--gutter) 2.5rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
-  .nav.is-open a { font-size: 1.6rem; font-family: var(--font-display); }
+
+  /* Hide the floating WhatsApp bubble while the menu is open — the menu
+     already has a WhatsApp CTA and the bubble doubles up on top of it. */
+  body.nav-open .wa-float { display: none; }
+
+  /* Close control — previously the only way out was re-tapping the
+     hamburger, which sat underneath the overlay. */
+  .nav-close {
+    display: flex;
+    position: absolute;
+    top: clamp(0.75rem, 3vw, 1.1rem);
+    right: clamp(0.75rem, 3vw, 1.1rem);
+    width: 46px; height: 46px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: 0 6px 18px -10px rgba(11, 61, 145, 0.35);
+    cursor: pointer;
+  }
+  .nav-close svg { width: 20px; height: 20px; stroke: var(--ink); stroke-width: 1.9; fill: none; }
+
+  /* Brand mark at the top of the panel so the menu is not a floating list. */
+  .nav-brand {
+    display: block;
+    margin-bottom: 2rem;
+    line-height: 0;
+  }
+  .nav-brand img { height: 46px; width: auto; }
+
+  /* Tap targets: block-level rows with a divider instead of bare text links
+     that overlapped each other and were only 50px tall. */
+  .nav.is-open > a {
+    font-size: 1.5rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--ink);
+    padding: 1.05rem 0;
+    border-bottom: 1px solid var(--line);
+    line-height: 1.3;
+  }
+  .nav.is-open > a:last-of-type { border-bottom: 0; }
+
+  /* The WhatsApp link is a .btn: restore pill styling so it does not
+     inherit the row/divider treatment above. */
+  .nav.is-open > a.btn {
+    margin-top: 1.5rem;
+    padding: 1rem 1.6rem;
+    border: 0;
+    border-radius: var(--radius-pill);
+    font-size: 1.05rem;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0 14px 30px -14px var(--accent-glow);
+  }
+  .nav.is-open > a.btn:hover { color: #fff; }
   /* Two columns on small screens: chip + number, then the step name and its
      description stacked in the third column. Placing the description by grid
      line (rather than auto-flow) is what keeps it out of the 56px chip column —
