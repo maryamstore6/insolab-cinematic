@@ -427,11 +427,14 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
     grid-template-columns: 1fr;
     gap: var(--s-3);
   }
-  /* Copy first so the headline + CTA are above the fold; the panel follows */
+  /* Image first on mobile: product visual above the fold, copy follows */
   .hero-visual {
-    margin-top: var(--s-3);
+    order: -1;
+    margin-top: 0;
+    margin-bottom: var(--s-3);
   }
   .hero-copy {
+    order: 2;
     text-align: left;
     max-width: 100%;
   }
