@@ -39,9 +39,9 @@
   --line:           #E2E9F2;
   --line-soft:      rgba(11, 61, 145, 0.08);
 
-  /* Typography — Poppins throughout (brand kit) */
-  --font-display: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-body:    "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+  /* Typography — Sora (display) + Inter (body) */
+  --font-display: "Sora", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body:    "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
 
   /* Fluid type scale — cinematic big type */
   --t-hero:   clamp(2rem, 4.05vw, 3.85rem);
@@ -1605,6 +1605,143 @@ select.form-input {
 .section-head h2 { letter-spacing: -0.025em; }
 
 body.nav-open { overflow: hidden; }
+
+/* ---------- 29. CONSISTENT SECTION ALIGNMENT ---------- */
+.section {
+  padding-block: var(--s-7);
+}
+.section--tight {
+  padding-block: var(--s-5);
+}
+.section-head {
+  margin-bottom: var(--s-5);
+}
+.section-head .eyebrow {
+  display: block;
+  font-size: var(--t-micro);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--s-2);
+}
+.section-head h2 {
+  font-size: var(--t-lg);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+.section-head p {
+  margin-top: var(--s-2);
+  font-size: var(--t-body);
+  color: var(--ink-muted);
+  max-width: 60ch;
+}
+
+/* Consistent body text */
+p {
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* Consistent headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Consistent buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: var(--t-small);
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo), background 0.3s ease;
+}
+.btn--primary {
+  background: var(--accent);
+  color: white;
+}
+.btn--primary:hover {
+  background: var(--accent-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -10px rgba(11, 61, 145, 0.3);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+.btn--ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.btn--lg {
+  padding: 1.125rem 2.25rem;
+  font-size: var(--t-body);
+}
+.btn--block {
+  width: 100%;
+}
+
+/* Consistent cards */
+.product-card,
+.quote-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+}
+.product-card:hover,
+.quote-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(11, 61, 145, 0.15);
+}
+
+/* Consistent images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Consistent links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--accent-deep);
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: white;
+}
 
 @media (max-width: 760px) {
   .form-row-2 { grid-template-columns: 1fr; }
