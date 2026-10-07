@@ -583,38 +583,35 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   z-index: 3;
   align-self: start;
   width: 100%;
-  border-radius: var(--radius-lg);
+}
+/* Inner wrapper carries the rounded frame + shadow, so the caption can sit
+   below the photo without being clipped by overflow:hidden. */
+.hero-visual picture {
+  display: block;
   overflow: hidden;
+  border-radius: var(--radius-lg);
   background: linear-gradient(160deg, #E8F1FA 0%, #D8E8F4 45%, #EAF3F8 100%);
   box-shadow: 0 40px 90px -40px rgba(11, 61, 145, 0.35), 0 2px 0 rgba(255, 255, 255, 0.6) inset;
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
-/* The panel now wraps a photo, so it takes the image's aspect ratio rather
-   than a fixed height (which left letterboxing on wide panels). */
-.hero-visual picture { display: block; }
+/* The whole composite is shown: the panel takes the image's own 1:1 ratio
+   and the image fills it edge to edge, so nothing is cropped. */
 .hero-visual-img {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1140 / 639;
-  object-fit: cover;
-  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
 }
-.hero-visual-tag {
-  position: absolute;
-  left: var(--s-3); bottom: var(--s-3);
-  z-index: 4;
+/* Caption sits UNDER the panel (it used to overlay the photo). */
+.hero-visual-caption {
+  margin: var(--s-2) 0 0;
   font-size: var(--t-micro);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--navy);
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  padding: 0.5rem 0.9rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(11, 61, 145, 0.18);
-  box-shadow: 0 4px 14px -6px rgba(11, 61, 145, 0.35);
+  color: var(--ink-muted);
+  text-align: center;
 }
-
 .scroll-hint {
   position: absolute;
   left: 50%; bottom: 1.75rem;
