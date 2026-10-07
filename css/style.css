@@ -811,6 +811,8 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   border: 1px solid var(--line);
   background: var(--surface);
   box-shadow: 0 20px 50px -30px rgba(11, 61, 145, 0.22);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 .process-figure figcaption {
   margin-top: var(--s-2);
