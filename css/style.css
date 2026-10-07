@@ -697,6 +697,30 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   will-change: opacity;
 }
 
+/* Supporting figure below the statement. The image is square, so cap its
+   width rather than letting it span the full 1320px container (which would
+   make it taller than the viewport). */
+.statement-figure {
+  margin: clamp(2.5rem, 6vh, 4.5rem) 0 0;
+  max-width: 900px;
+}
+.statement-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: 0 30px 70px -40px rgba(11, 61, 145, 0.28);
+}
+.statement-figure figcaption {
+  margin-top: var(--s-2);
+  font-size: var(--t-small);
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
 /* ---------- 10. SPLIT PANEL (parallax image + copy) ---------- */
 .split {
   display: grid;
