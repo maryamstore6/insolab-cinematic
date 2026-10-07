@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InsoLab — Font Comparison v29 vs v30</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; background: #f5f7fa; }
+.header {
+  background: #0B3D91;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+.header h1 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+.header p { font-size: 0.875rem; opacity: 0.8; }
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  height: calc(100vh - 80px);
+}
+.panel {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+}
+.panel-header {
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+  border-bottom: 1px solid #e2e9f2;
+}
+.panel-header.v29 { background: #e6f5f7; color: #00777C; }
+.panel-header.v30 { background: #fef3e2; color: #8B4513; }
+.panel iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .compare { grid-template-columns: 1fr; height: auto; }
+  .panel { height: 60vh; }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>InsoLab Font Comparison</h1>
+  <p>v29 (Sora + Inter) vs v30 (Playfair Display + Source Sans 3)</p>
+</div>
+<div class="compare">
+  <div class="panel">
+    <div class="panel-header v29">v29 — Sora + Inter (Modern Clinical)</div>
+    <iframe src="https://cdn.statically.io/gh/maryamstore6/insolab-cinematic/be0094a/index.html"></iframe>
+  </div>
+  <div class="panel">
+    <div class="panel-header v30">v30 — Playfair Display + Source Sans 3 (Premium Editorial)</div>
+    <iframe src="https://cdn.statically.io/gh/maryamstore6/insolab-cinematic/aa63a5b/index.html"></iframe>
+  </div>
+</div>
+</body>
+</html>
