@@ -326,28 +326,6 @@
       gsap.set('[data-reveal]', { opacity: 1, y: 0 });
     }
 
-    /* ---- statement: word-by-word illumination ---- */
-    const stmt = document.querySelector('.statement-text');
-    if (stmt) {
-      const words = stmt.querySelectorAll('.word');
-      if (words.length && !reduced) {
-        gsap.to(words, {
-          opacity: 1,
-          duration: 0.5,
-          ease: 'none',
-          stagger: 0.06,
-          scrollTrigger: {
-            trigger: stmt,
-            start: 'top 74%',
-            end: 'bottom 52%',
-            scrub: 0.6
-          }
-        });
-      } else {
-        words.forEach((w) => (w.style.opacity = 1));
-      }
-    }
-
     /* ---- parallax: split visuals ---- */
     if (!reduced && !isTouch) {
       document.querySelectorAll('.split-visual-inner').forEach((inner) => {

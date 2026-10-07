@@ -685,33 +685,15 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   to   { transform: translateX(-50%); }
 }
 
-/* ---------- 9. STATEMENT (big scroll-reveal text) ---------- */
-.statement { background: var(--paper); }
-.statement-text {
-  font-family: var(--font-display);
-  font-size: var(--t-xl);
-  line-height: 1.18;
-  letter-spacing: -0.025em;
-  max-width: 22ch;
-}
-.statement-text .word {
-  display: inline-block;
-  opacity: 0.14;
-  will-change: opacity;
-}
-
-/* Supporting figure below the statement. The image is square, so on wide
-   screens the statement text sits beside it (2 columns) instead of leaving
-   half the row empty; below 900px they stack. */
-.statement-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: center;
+/* ---------- 9. KENAPA INSOLAB (consistent with other sections) ---------- */
+.lead {
+  font-size: var(--t-md);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: var(--s-4);
 }
 .statement-figure {
   margin: 0;
-  max-width: 640px;
 }
 .statement-img {
   display: block;
@@ -728,10 +710,6 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   font-size: var(--t-small);
   color: var(--ink-muted);
   line-height: 1.6;
-}
-@media (max-width: 900px) {
-  .statement-grid { grid-template-columns: 1fr; }
-  .statement-figure { max-width: 100%; margin-top: var(--s-4); }
 }
 
 /* ---------- 10. SPLIT PANEL (parallax image + copy) ---------- */
