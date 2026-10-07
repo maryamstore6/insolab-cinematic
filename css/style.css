@@ -427,11 +427,8 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
     grid-template-columns: 1fr;
     gap: var(--s-3);
   }
-  /* Copy first so the headline + CTA are above the fold; the 3D panel follows */
+  /* Copy first so the headline + CTA are above the fold; the panel follows */
   .hero-visual {
-    height: clamp(240px, 34vh, 340px);
-    max-height: none;
-    aspect-ratio: auto;
     margin-top: var(--s-3);
   }
   .hero-copy {
@@ -492,15 +489,6 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   opacity: 0.55;
   pointer-events: none;
   z-index: 0;
-}
-
-#hero-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
 }
 
 .hero-inner {
@@ -595,26 +583,21 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   z-index: 3;
   align-self: start;
   width: 100%;
-  height: clamp(340px, 60vh, 620px);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 90% 70% at 50% 30%, rgba(230, 245, 247, 0.9), transparent 70%),
-    linear-gradient(160deg, #E8F1FA 0%, #D8E8F4 45%, #EAF3F8 100%);
+  background: linear-gradient(160deg, #E8F1FA 0%, #D8E8F4 45%, #EAF3F8 100%);
   box-shadow: 0 40px 90px -40px rgba(11, 61, 145, 0.35), 0 2px 0 rgba(255, 255, 255, 0.6) inset;
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
-/* Soft floor shadow so the 3D insole reads as grounded, not floating */
-.hero-visual::after {
-  content: "";
-  position: absolute;
-  left: 50%; bottom: 12%;
-  width: 58%; height: 34px;
-  transform: translateX(-50%);
-  background: radial-gradient(ellipse at center, rgba(11, 61, 145, 0.20), transparent 72%);
-  filter: blur(10px);
-  pointer-events: none;
-  z-index: 1;
+/* The panel now wraps a photo, so it takes the image's aspect ratio rather
+   than a fixed height (which left letterboxing on wide panels). */
+.hero-visual picture { display: block; }
+.hero-visual-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1140 / 639;
+  object-fit: cover;
+  display: block;
 }
 .hero-visual-tag {
   position: absolute;
@@ -1241,7 +1224,8 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; gap: var(--s-5); }
   .hero-copy { max-width: 100%; }
-  .hero-visual { max-height: 46vh; aspect-ratio: 4 / 3; }
+  /* No fixed height/aspect here: the panel sizes to the photo's own ratio
+     (a forced 4/3 would letterbox the 1.78:1 image). */
   .split { grid-template-columns: 1fr; gap: var(--s-4); }
   .split--flip .split-visual { order: 0; }
   .split-visual { aspect-ratio: 16 / 10; }
