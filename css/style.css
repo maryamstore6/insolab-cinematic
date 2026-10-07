@@ -822,6 +822,24 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
 .split-copy p:last-of-type { margin-bottom: var(--s-4); }
 
 /* ---------- 11. PROCESS ---------- */
+.process-figure {
+  margin: 0 0 var(--s-5);
+}
+.process-figure-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: 0 20px 50px -30px rgba(11, 61, 145, 0.22);
+}
+.process-figure figcaption {
+  margin-top: var(--s-2);
+  font-size: var(--t-small);
+  color: var(--ink-muted);
+  text-align: center;
+}
 .process-list { border-top: 1px solid var(--line); }
 .process-row {
   display: grid;
