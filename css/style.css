@@ -39,9 +39,9 @@
   --line:           #E2E9F2;
   --line-soft:      rgba(11, 61, 145, 0.08);
 
-  /* Typography — Sora (display) + Inter (body) */
-  --font-display: "Sora", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-body:    "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  /* Typography — Playfair Display (display) + Source Sans 3 (body) */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body:    "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
 
   /* Fluid type scale — cinematic big type */
   --t-hero:   clamp(2rem, 4.05vw, 3.85rem);
@@ -515,8 +515,8 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
 .hero-title {
   font-size: var(--t-hero);
   font-weight: 700;
-  line-height: 1.03;
-  letter-spacing: -0.032em;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   margin-block: var(--s-3) 0;
 }
 .hero-title em {
@@ -1014,7 +1014,14 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
 }
 .quote-card:hover { transform: translateY(-4px); box-shadow: 0 28px 60px -30px rgba(11, 61, 145,0.2); }
 .quote-mark { font-family: var(--font-display); font-size: 2.6rem; line-height: 0.6; color: var(--accent); opacity: 0.32; }
-.quote-text { font-size: var(--t-body); color: var(--ink-soft); line-height: 1.6; flex: 1; }
+.quote-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--t-md);
+  color: var(--ink-soft);
+  line-height: 1.6;
+  flex: 1;
+}
 .quote-who { display: flex; align-items: center; gap: 0.75rem; padding-top: var(--s-2); border-top: 1px solid var(--line); }
 .quote-avatar {
   width: 38px; height: 38px;
@@ -1627,9 +1634,9 @@ body.nav-open { overflow: hidden; }
 }
 .section-head h2 {
   font-size: var(--t-lg);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 .section-head p {
@@ -1643,16 +1650,16 @@ body.nav-open { overflow: hidden; }
 p {
   font-family: var(--font-body);
   font-size: var(--t-body);
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--ink-soft);
 }
 
-/* Consistent headings */
+/* Consistent headings — Playfair Display needs tighter tracking */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 /* Consistent buttons */
