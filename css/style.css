@@ -697,12 +697,18 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   will-change: opacity;
 }
 
-/* Supporting figure below the statement. The image is square, so cap its
-   width rather than letting it span the full 1320px container (which would
-   make it taller than the viewport). */
+/* Supporting figure below the statement. The image is square, so on wide
+   screens the statement text sits beside it (2 columns) instead of leaving
+   half the row empty; below 900px they stack. */
+.statement-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
 .statement-figure {
-  margin: clamp(2.5rem, 6vh, 4.5rem) 0 0;
-  max-width: 900px;
+  margin: 0;
+  max-width: 640px;
 }
 .statement-img {
   display: block;
@@ -719,6 +725,10 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   font-size: var(--t-small);
   color: var(--ink-muted);
   line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .statement-grid { grid-template-columns: 1fr; }
+  .statement-figure { max-width: 100%; margin-top: var(--s-4); }
 }
 
 /* ---------- 10. SPLIT PANEL (parallax image + copy) ---------- */
