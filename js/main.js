@@ -183,19 +183,46 @@
   };
 
   let selected = 'bundle-2';
+  let quantity = 1;
+
+  const MAX_QTY = 10;
 
   function renderSummary() {
     const p = PRODUCTS[selected];
+    const perPack = parseInt(p.qty, 10) || 1;
+    const totalUnits = perPack * quantity;
+    const totalPrice = p.price * quantity;
+
     const el = {
       name:  document.getElementById('sum-name'),
       qty:   document.getElementById('sum-qty'),
       total: document.getElementById('sum-total'),
-      cta:   document.getElementById('cta-total')
+      cta:   document.getElementById('cta-total'),
+      qv:    document.getElementById('qty-value'),
+      minus: document.getElementById('qty-minus'),
+      plus:  document.getElementById('qty-plus')
     };
+
     if (el.name)  el.name.textContent  = p.name;
-    if (el.qty)   el.qty.textContent   = p.qty;
-    if (el.total) el.total.textContent = 'RM' + p.price;
-    if (el.cta)   el.cta.textContent   = 'RM' + p.price;
+    if (el.qty)   el.qty.textContent   = quantity > 1
+      ? quantity + ' × ' + p.qty + ' = ' + totalUnits + ' unit'
+      : p.qty;
+    if (el.total) el.total.textContent = 'RM' + totalPrice;
+    if (el.cta)   el.cta.textContent   = 'RM' + totalPrice;
+    if (el.qv)    el.qv.textContent    = String(quantity);
+    if (el.minus) el.minus.disabled    = quantity <= 1;
+    if (el.plus)  el.plus.disabled     = quantity >= MAX_QTY;
+  }
+
+  function initQty() {
+    const minus = document.getElementById('qty-minus');
+    const plus  = document.getElementById('qty-plus');
+    if (minus) minus.addEventListener('click', () => {
+      if (quantity > 1) { quantity--; renderSummary(); }
+    });
+    if (plus) plus.addEventListener('click', () => {
+      if (quantity < MAX_QTY) { quantity++; renderSummary(); }
+    });
   }
 
   function initForm() {
@@ -204,10 +231,12 @@
         document.querySelectorAll('[data-product]').forEach((o) => o.classList.remove('is-picked'));
         opt.classList.add('is-picked');
         selected = opt.getAttribute('data-product');
+        quantity = 1;          // switching package starts a fresh count
         renderSummary();
       });
     });
     renderSummary();
+    initQty();
 
     const form = document.getElementById('order-form');
     if (!form) return;
@@ -217,6 +246,9 @@
 
       const fd = new FormData(form);
       const p = PRODUCTS[selected];
+      const perPack = parseInt(p.qty, 10) || 1;
+      const totalUnits = perPack * quantity;
+      const totalPrice = p.price * quantity;
       const no = 'ISL-' + Math.floor(100000 + Math.random() * 900000);
 
       const set = (id, val) => {
@@ -227,8 +259,9 @@
       set('cf-no', no);
       set('cf-name', fd.get('name') || '—');
       set('cf-phone', fd.get('phone') || '—');
-      set('cf-product', p.name + ' — ' + p.qty);
-      set('cf-total', 'RM' + p.price);
+      set('cf-product', p.name + ' — ' + totalUnits + ' unit'
+        + (quantity > 1 ? ' (' + quantity + ' × ' + p.qty + ')' : ''));
+      set('cf-total', 'RM' + totalPrice);
 
       // swap views
       const checkout = document.getElementById('view-checkout');

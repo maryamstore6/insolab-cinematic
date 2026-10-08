@@ -23,7 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
-<link rel="stylesheet" href="css/style.css?v=35">
+<link rel="stylesheet" href="css/style.css?v=36">
 </head>
 <body class="is-loading">
 
@@ -739,13 +739,32 @@
           </p>
         </form>
 
-        <!-- Buy box: package first, then the facts, then the price -->
+        <!-- Buy box: what you get, then the package, then the price -->
         <div class="buybox" data-reveal>
           <div class="buybox-trust">
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>100 Hari Jaminan</span>
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Impression Kit Percuma</span>
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Postage Balik Ditanggung</span>
           </div>
+
+          <ul class="buybox-benefits">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Dibuat ikut acuan kaki anda sendiri</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Imprint di rumah — 5 minit, tiada temujanji</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Penghantaran seluruh Malaysia</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Tak puas hati? Kami baiki dalam 100 hari</span>
+            </li>
+          </ul>
 
           <div class="buybox-head">
             <div class="buybox-title">Pilih Pakej Anda</div>
@@ -779,6 +798,15 @@
             </button>
           </div>
 
+          <div class="qty-row">
+            <span class="qty-label">Kuantiti</span>
+            <div class="qty-stepper">
+              <button type="button" id="qty-minus" aria-label="Kurangkan kuantiti">&minus;</button>
+              <span id="qty-value" aria-live="polite">1</span>
+              <button type="button" id="qty-plus" aria-label="Tambah kuantiti">+</button>
+            </div>
+          </div>
+
           <div class="summary-lines">
             <div class="summary-line"><span>Produk</span><span id="sum-name">2 Unit Package</span></div>
             <div class="summary-line"><span>Kuantiti</span><span id="sum-qty">2 unit</span></div>
@@ -800,6 +828,18 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
             Pembayaran disahkan melalui WhatsApp
           </div>
+
+          <figure class="buybox-quote">
+            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote>Kerja saya berdiri 8 jam sehari. Lepas pakai ni, kaki tak penat macam dulu.</blockquote>
+            <figcaption>
+              <span class="buybox-quote-avatar" aria-hidden="true">A</span>
+              <span>
+                <strong>Ahmad R.</strong>
+                <small>Pengguna On My Feet All Day</small>
+              </span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -957,7 +997,7 @@
 <script src="lib/lenis.min.js"></script>
 <script src="lib/gsap.min.js"></script>
 <script src="lib/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=35"></script>
+<script src="js/main.js?v=36"></script>
 
 </body>
 </html>
