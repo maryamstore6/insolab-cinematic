@@ -401,7 +401,7 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
 }
 
 /* Mobile hero optimizations */
-@media (max-width: 768px) {
+@media (max-width: 760px) {
   .hero-bg-img {
     object-position: center 30%;
   }
@@ -731,37 +731,6 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   transform: translateZ(0);
   backface-visibility: hidden;
 }
-.split-visual-inner {
-  position: absolute;
-  inset: -12% 0;
-  will-change: transform;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.split-visual-art {
-  width: 72%;
-  max-width: 340px;
-  height: auto;
-  filter: drop-shadow(0 26px 50px rgba(11, 61, 145,0.14));
-}
-.split-visual-placeholder {
-  width: 62%;
-  aspect-ratio: 2 / 3;
-  border-radius: 50% 50% 46% 46% / 42% 42% 58% 58%;
-  background: linear-gradient(165deg, rgba(0, 179, 184, 0.16), rgba(11, 61, 145, 0.12));
-  border: 1px solid rgba(255,255,255,0.7);
-  box-shadow: 0 30px 70px -30px rgba(11, 61, 145, 0.22);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--t-micro);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  text-align: center;
-  padding: var(--s-2);
-}
 
 /* Film panel: the process clips are shot in portrait, so the panel keeps a
    portrait ratio and the video covers it. A navy scrim sits over the footage
@@ -926,22 +895,6 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
 }
 .product-card:hover .product-art { transform: scale(1.06) rotate(-1.5deg); }
 
-.product-media-inner {
-  width: 54%;
-  aspect-ratio: 2 / 3;
-  border-radius: 50% 50% 46% 46% / 42% 42% 58% 58%;
-  background: linear-gradient(165deg, rgba(0, 179, 184, 0.18), rgba(11, 61, 145, 0.13));
-  border: 1px solid rgba(255,255,255,0.75);
-  box-shadow: 0 22px 50px -22px rgba(11, 61, 145,0.24);
-  display: flex; align-items: center; justify-content: center;
-  font-size: var(--t-micro);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  text-align: center;
-  padding: var(--s-2);
-  transition: transform 0.7s var(--ease-out-expo);
-}
 .product-card:hover .product-media-inner { transform: scale(1.05) rotate(-1.5deg); }
 
 .product-badge {
@@ -1387,7 +1340,6 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
   .line-inner { transform: none !important; }
-  .statement-text .word { opacity: 1 !important; }
   .grain { display: none; }
   .marquee-track { animation: none; }
 }
@@ -1447,7 +1399,6 @@ select.form-input {
   border-radius: var(--radius-lg);
   padding: clamp(1.5rem, 3vw, 2rem);
 }
-.summary--info { margin-top: var(--s-3); background: var(--surface-alt); }
 
 /* Sticky only when the whole column actually fits the viewport.
    Sticking a panel taller than the viewport just clips it, and a sticky
@@ -1457,9 +1408,6 @@ select.form-input {
   .summary {
     position: sticky;
     top: 6rem;
-  }
-  .summary--info {
-    position: static;
   }
 }
 
@@ -1773,23 +1721,6 @@ select.form-input {
 }
 .summary-total span:last-child { color: var(--accent); }
 
-.info-list { display: flex; flex-direction: column; gap: 0.55rem; }
-.info-list li {
-  font-size: var(--t-small);
-  color: var(--ink-soft);
-  padding-left: 1.4rem;
-  position: relative;
-  line-height: 1.55;
-}
-.info-list li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0.52em;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  opacity: 0.55;
-}
 
 /* ---------- 25. CONFIRMATION ---------- */
 .confirm { max-width: 46rem; margin-inline: auto; text-align: center; }
@@ -2010,4 +1941,18 @@ a:hover {
 @media (max-width: 760px) {
   .form-row-2 { grid-template-columns: 1fr; }
   .summary { position: static; }
+}
+
+/* ---------- 30. PRINT ---------- */
+@media print {
+  .grain, .vignette, .progress, .loader, .marquee, .scroll-hint,
+  .wa-float, .nav, .nav-toggle, .hero-bloom, .hero-shaft,
+  .split-visual, .process-figure, .buybox-quote { display: none !important; }
+
+  body { background: #fff; color: #000; }
+  .hdr { position: static; }
+  .section { padding-block: 1.5rem; break-inside: avoid; }
+  .hero { min-height: auto; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; }
+  .product-card, .quote-card, .buybox, .summary { box-shadow: none; border: 1px solid #ccc; }
 }

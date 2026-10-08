@@ -92,9 +92,13 @@
   function closeNav() {
     const nav = document.querySelector('.nav');
     const toggle = document.querySelector('.nav-toggle');
+    const wasOpen = nav && nav.classList.contains('is-open');
     if (nav) nav.classList.remove('is-open');
     document.body.classList.remove('nav-open');
     if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    // Return focus to the control that opened the panel, otherwise focus
+    // is left on a now-hidden element.
+    if (wasOpen && toggle) toggle.focus();
     if (lenis) lenis.start();
   }
 
@@ -125,6 +129,25 @@
     // Escape closes the menu
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && nav.classList.contains('is-open')) closeNav();
+    });
+
+    // Keep keyboard focus inside the open panel: without this, Tab walks
+    // out into the page behind the overlay.
+    nav.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab' || !nav.classList.contains('is-open')) return;
+      const focusables = nav.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     });
 
     // Keep aria-expanded honest if the panel is closed by any other route
@@ -359,16 +382,20 @@
       gsap.set('[data-reveal]', { opacity: 1, y: 0 });
     }
 
-    /* ---- parallax: split visuals ---- */
+    /* ---- parallax: split visuals ----
+       Targets .split-visual-film, which is the element that actually
+       exists in the markup (the split visuals hold <video>). The old
+       selector .split-visual-inner matched nothing, so this parallax
+       had been silently doing nothing. */
     if (!reduced && !isTouch) {
-      document.querySelectorAll('.split-visual-inner').forEach((inner) => {
-        gsap.fromTo(inner,
+      document.querySelectorAll('.split-visual-film').forEach((film) => {
+        gsap.fromTo(film,
           { yPercent: -7 },
           {
             yPercent: 7,
             ease: 'none',
             scrollTrigger: {
-              trigger: inner.closest('.split-visual'),
+              trigger: film.closest('.split-visual'),
               start: 'top bottom',
               end: 'bottom top',
               scrub: 1
@@ -555,14 +582,20 @@
     // year stamp
     const y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
-
-    // expose for debugging / teardown
-    window.__insolab = {
-      lenis,
-      reduced: prefersReduced,
-      scrollTo: (t) => (lenis ? lenis.scrollTo(t) : window.scrollTo(0, t))
-    };
   }
+
+  // A thrown error anywhere in boot() would otherwise leave the preloader
+  // covering the page and the reveal elements hidden. Force the visible
+  // state so a bug degrades to "no animation" rather than "blank page".
+  window.addEventListener('error', () => {
+    document.body.classList.remove('is-loading');
+    const loader = document.getElementById('loader');
+    if (loader) loader.style.display = 'none';
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
