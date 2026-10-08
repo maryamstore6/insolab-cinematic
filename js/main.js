@@ -179,7 +179,7 @@
   const PRODUCTS = {
     'omfad-1':   { name: 'On My Feet All Day',        qty: '1 unit', price: 399 },
     'nea-1':     { name: 'Normal Everyday Activity',  qty: '1 unit', price: 399 },
-    'bundle-2':  { name: '2 Unit Package',            qty: '2 unit', price: 650 }
+    'bundle-2':  { name: '2 Unit Package',            qty: '2 unit', price: 699 }
   };
 
   let selected = 'bundle-2';
@@ -197,7 +197,7 @@
       name:  document.getElementById('sum-name'),
       qty:   document.getElementById('sum-qty'),
       total: document.getElementById('sum-total'),
-      cta:   document.getElementById('cta-total'),
+      cta:   document.getElementById('cta-total-bb'),
       qv:    document.getElementById('qty-value'),
       minus: document.getElementById('qty-minus'),
       plus:  document.getElementById('qty-plus')

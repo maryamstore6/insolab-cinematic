@@ -23,7 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
-<link rel="stylesheet" href="css/style.css?v=36">
+<link rel="stylesheet" href="css/style.css?v=37">
 </head>
 <body class="is-loading">
 
@@ -256,10 +256,10 @@
 
     <div class="bundle-strip" data-reveal>
       <div>
-        <h3>Ambil dua, jimat RM148.</h3>
+        <h3>Ambil dua, jimat RM99.</h3>
         <p>Untuk anda dan pasangan.</p>
       </div>
-      <a href="#order" class="btn btn--primary btn--lg">Order 2 Unit — RM650</a>
+      <a href="#order" class="btn btn--primary btn--lg">Order 2 Unit — RM699</a>
     </div>
   </div>
 </section>
@@ -729,10 +729,6 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn--primary btn--lg btn--block">
-            Teruskan ke Pembayaran — <span id="cta-total">RM650</span>
-          </button>
-
           <p class="form-note">
             Dengan membuat pesanan, anda bersetuju dengan terma kami. InsoLab custom insoles
             adalah produk untuk keselesaan dan sokongan — bukan alat perubatan.
@@ -744,7 +740,7 @@
           <div class="buybox-trust">
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>100 Hari Jaminan</span>
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Impression Kit Percuma</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Postage Balik Ditanggung</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Penghantaran Percuma</span>
           </div>
 
           <ul class="buybox-benefits">
@@ -792,9 +788,9 @@
               <span class="pick-badge">PALING JIMAT</span>
               <span class="pick-top">
                 <span class="pick-name">2 Unit Package</span>
-                <span class="pick-price"><s>RM798</s> RM650</span>
+                <span class="pick-price"><s>RM798</s> RM699</span>
               </span>
-              <span class="pick-meta">2 unit · jimat RM148</span>
+              <span class="pick-meta">2 unit · jimat RM99</span>
             </button>
           </div>
 
@@ -807,16 +803,27 @@
             </div>
           </div>
 
+          <!-- Checkout button sits directly under the quantity, above the
+               summary: price is on the button so the next step is obvious. -->
+          <button type="submit" form="order-form" class="btn btn--primary btn--lg btn--block buybox-cta">
+            Teruskan ke Pembayaran — <span id="cta-total-bb">RM699</span>
+          </button>
+
+          <div class="buybox-ship">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>
+            <span><strong>Penghantaran percuma</strong> — kami tanggung kos pos kit dan penghantaran balik</span>
+          </div>
+
           <div class="summary-lines">
             <div class="summary-line"><span>Produk</span><span id="sum-name">2 Unit Package</span></div>
             <div class="summary-line"><span>Kuantiti</span><span id="sum-qty">2 unit</span></div>
             <div class="summary-line"><span>Impression Kit</span><span>Termasuk</span></div>
-            <div class="summary-line"><span>Return Postage</span><span>Ditanggung</span></div>
+            <div class="summary-line"><span>Penghantaran</span><span>Percuma</span></div>
           </div>
 
           <div class="summary-total">
             <span>Jumlah</span>
-            <span id="sum-total">RM650</span>
+            <span id="sum-total">RM699</span>
           </div>
 
           <div class="buybox-urgency">
@@ -997,7 +1004,7 @@
 <script src="lib/lenis.min.js"></script>
 <script src="lib/gsap.min.js"></script>
 <script src="lib/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=36"></script>
+<script src="js/main.js?v=37"></script>
 
 </body>
 </html>

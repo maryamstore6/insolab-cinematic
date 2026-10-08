@@ -1665,6 +1665,33 @@ select.form-input {
   font-variant-numeric: tabular-nums;
 }
 
+/* checkout button under the quantity — full width, price included */
+.buybox-cta {
+  margin-bottom: var(--s-2);
+}
+
+/* free shipping line */
+.buybox-ship {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: var(--t-small);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  background: var(--sand-soft);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.85rem;
+  margin-bottom: var(--s-3);
+}
+.buybox-ship svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  margin-top: 0.15rem;
+  color: var(--accent-deep);
+}
+.buybox-ship strong { color: var(--accent-deep); font-weight: 600; }
+
 /* testimonial inside the buy box */
 .buybox-quote {
   margin: var(--s-3) 0 0;
