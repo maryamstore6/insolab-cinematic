@@ -23,7 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
-<link rel="stylesheet" href="css/style.css?v=32">
+<link rel="stylesheet" href="css/style.css?v=33">
 </head>
 <body class="is-loading">
 
@@ -675,7 +675,7 @@
         <h2 style="font-size:var(--t-lg);margin-top:var(--s-2)">Mula dengan impression kit.</h2>
       </div>
 
-      <div class="split" style="align-items:start">
+      <div class="split split--buybox" style="align-items:start">
         <form id="order-form" data-reveal>
           <div class="form-row">
             <label class="form-label" for="f-name">Nama Penuh <span>*</span></label>
@@ -729,7 +729,7 @@
           </div>
 
           <button type="submit" class="btn btn--primary btn--lg btn--block">
-            Teruskan ke Pembayaran — <span id="cta-total">RM399</span>
+            Teruskan ke Pembayaran — <span id="cta-total">RM650</span>
           </button>
 
           <p class="form-note">
@@ -738,47 +738,66 @@
           </p>
         </form>
 
-        <div data-reveal>
-          <div class="summary">
-            <div class="summary-title">Ringkasan Pesanan</div>
-
-            <div class="pick-list">
-              <button type="button" class="pick is-picked" data-product="omfad-1">
-                <span class="pick-name">On My Feet All Day</span>
-                <span class="pick-meta">1 unit · RM399</span>
-              </button>
-              <button type="button" class="pick" data-product="nea-1">
-                <span class="pick-name">Normal Everyday Activity</span>
-                <span class="pick-meta">1 unit · RM399</span>
-              </button>
-              <button type="button" class="pick" data-product="bundle-2">
-                <span class="pick-name">2 Unit Package</span>
-                <span class="pick-meta">2 unit · RM650 · jimat RM148</span>
-              </button>
-            </div>
-
-            <div class="summary-lines">
-              <div class="summary-line"><span>Produk</span><span id="sum-name">On My Feet All Day</span></div>
-              <div class="summary-line"><span>Kuantiti</span><span id="sum-qty">1 unit</span></div>
-              <div class="summary-line"><span>Impression Kit</span><span>Termasuk</span></div>
-              <div class="summary-line"><span>Return Postage</span><span>Ditanggung</span></div>
-            </div>
-
-            <div class="summary-total">
-              <span>Jumlah</span>
-              <span id="sum-total">RM399</span>
-            </div>
+        <!-- Buy box: package first, then the facts, then the price -->
+        <div class="buybox" data-reveal>
+          <div class="buybox-trust">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>100 Hari Jaminan</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Impression Kit Percuma</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Postage Balik Ditanggung</span>
           </div>
 
-          <div class="summary summary--info">
-            <div class="summary-title">Perlu Diketahui</div>
-            <ul class="info-list">
-              <li>Impression kit dihantar dalam 2–3 hari kerja</li>
-              <li>Penghantaran balik kit adalah percuma</li>
-              <li>Insole siap dalam 12–18 hari kerja</li>
-              <li>Penghantaran dalam Malaysia sahaja</li>
-              <li>100 hari jaminan — kami baiki, bukan refund</li>
-            </ul>
+          <div class="buybox-head">
+            <div class="buybox-title">Pilih Pakej Anda</div>
+            <p class="buybox-sub">Makin banyak, makin jimat.</p>
+          </div>
+
+          <div class="pick-list">
+            <button type="button" class="pick" data-product="omfad-1">
+              <span class="pick-top">
+                <span class="pick-name">On My Feet All Day</span>
+                <span class="pick-price">RM399</span>
+              </span>
+              <span class="pick-meta">1 unit · aktiviti berat 4+ jam</span>
+            </button>
+
+            <button type="button" class="pick" data-product="nea-1">
+              <span class="pick-top">
+                <span class="pick-name">Normal Everyday Activity</span>
+                <span class="pick-price">RM399</span>
+              </span>
+              <span class="pick-meta">1 unit · aktiviti harian 1–4 jam</span>
+            </button>
+
+            <button type="button" class="pick is-picked" data-product="bundle-2">
+              <span class="pick-badge">PALING JIMAT</span>
+              <span class="pick-top">
+                <span class="pick-name">2 Unit Package</span>
+                <span class="pick-price"><s>RM798</s> RM650</span>
+              </span>
+              <span class="pick-meta">2 unit · jimat RM148</span>
+            </button>
+          </div>
+
+          <div class="summary-lines">
+            <div class="summary-line"><span>Produk</span><span id="sum-name">2 Unit Package</span></div>
+            <div class="summary-line"><span>Kuantiti</span><span id="sum-qty">2 unit</span></div>
+            <div class="summary-line"><span>Impression Kit</span><span>Termasuk</span></div>
+            <div class="summary-line"><span>Return Postage</span><span>Ditanggung</span></div>
+          </div>
+
+          <div class="summary-total">
+            <span>Jumlah</span>
+            <span id="sum-total">RM650</span>
+          </div>
+
+          <div class="buybox-urgency">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Kit dipos dalam 2–3 hari kerja
+          </div>
+
+          <div class="buybox-secure">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            Pembayaran disahkan melalui WhatsApp
           </div>
         </div>
       </div>
@@ -937,7 +956,7 @@
 <script src="lib/lenis.min.js"></script>
 <script src="lib/gsap.min.js"></script>
 <script src="lib/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=32"></script>
+<script src="js/main.js?v=33"></script>
 
 </body>
 </html>

@@ -182,7 +182,7 @@
     'bundle-2':  { name: '2 Unit Package',            qty: '2 unit', price: 650 }
   };
 
-  let selected = 'omfad-1';
+  let selected = 'bundle-2';
 
   function renderSummary() {
     const p = PRODUCTS[selected];
