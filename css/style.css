@@ -38,6 +38,11 @@
 
   --line:           #E2E9F2;
   --line-soft:      rgba(11, 61, 145, 0.08);
+  /* Boundary for interactive controls (inputs, pickers, steppers, ghost/icon
+     buttons). WCAG 1.4.11 needs >=3:1 against the adjacent surface; --line is
+     a decorative divider at 1.22:1, so controls get their own token.
+     #7F92AE = 3.17:1 on white, 2.95:1 on --soft-gray. */
+  --line-strong:    #7F92AE;
 
   /* Typography — Playfair Display (display) + Source Sans 3 (body) */
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -344,7 +349,7 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
 }
 .nav-toggle svg { width: 20px; height: 20px; stroke: var(--ink); stroke-width: 1.8; fill: none; }
 
@@ -744,6 +749,9 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   inset: 0;
   width: 100%;
   height: 100%;
+  /* The poster frame is shown until the clip plays, so it has to fill the
+     panel the same way the video does — otherwise it letterboxes on the
+     first paint and the panel looks broken before playback starts. */
   object-fit: cover;
   display: block;
 }
@@ -1169,7 +1177,7 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   padding: 0.85rem;
   border-radius: var(--radius-pill);
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   box-shadow: 0 12px 34px -14px rgba(11, 61, 145,0.3);
   font-size: var(--t-small);
   font-weight: 500;
@@ -1221,6 +1229,10 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   .split { grid-template-columns: 1fr; gap: var(--s-4); }
   .split--flip .split-visual { order: 0; }
   .split-visual { aspect-ratio: 16 / 10; }
+  /* The 16/10 above is for the still-image panels. The film panels hold
+     portrait clips (9:16), so forcing them landscape made object-fit:cover
+     crop away most of the frame. Keep them portrait. */
+  .split-visual--video { aspect-ratio: 4 / 5; }
   .ftr-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 
@@ -1268,7 +1280,7 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-pill);
-    border: 1px solid var(--line);
+    border: 1px solid var(--line-strong);
     background: var(--surface);
     box-shadow: 0 6px 18px -10px rgba(11, 61, 145, 0.35);
     cursor: pointer;
@@ -1361,7 +1373,7 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
 .form-input {
   width: 100%;
   padding: 0.9rem 1.1rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background: var(--surface);
   color: var(--ink);
@@ -1371,7 +1383,7 @@ html.hdr-stuck .nav { padding-block: 0.85rem; }
   -webkit-appearance: none;
   appearance: none;
 }
-.form-input::placeholder { color: #7A8494; }
+.form-input::placeholder { color: #6B7686; }
 .form-input:focus {
   outline: none;
   border-color: var(--accent);
@@ -1428,7 +1440,7 @@ select.form-input {
   gap: 0.2rem;
   text-align: left;
   padding: 0.9rem 1.1rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background: var(--surface);
   transition: border-color 0.35s, background 0.35s, transform 0.4s var(--ease-out-expo);
@@ -1587,7 +1599,7 @@ select.form-input {
 .qty-stepper {
   display: inline-flex;
   align-items: center;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: var(--radius-pill);
   overflow: hidden;
   background: var(--surface);
@@ -1879,7 +1891,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn--ghost {
   background: transparent;
   color: var(--ink);
-  border: 1.5px solid var(--line);
+  border: 1.5px solid var(--line-strong);
 }
 .btn--ghost:hover {
   border-color: var(--accent);
