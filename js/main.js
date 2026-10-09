@@ -493,19 +493,34 @@
     // Autoplay is blocked until the clip is actually visible, and we stop it
     // again once it scrolls away — two always-on videos would keep the GPU
     // busy for no reason on a laptop like this one.
+    //
+    // The markup carries no autoplay attribute on purpose: with it, the browser
+    // downloads both clips in full on load (4.5 MB) even though they sit well
+    // below the fold. preload="none" + this observer means the bytes are only
+    // fetched when the panel is about to be seen.
     films.forEach((v) => {
+      let wanted = false;
+
       const play = () => {
+        if (!wanted || !v.paused) return;
         const p = v.play();
         if (p && p.catch) p.catch(() => {});   // ignore autoplay rejections
       };
-      if (!('IntersectionObserver' in window)) { play(); return; }
+
+      if (!('IntersectionObserver' in window)) { wanted = true; play(); return; }
+
       const io = new IntersectionObserver((entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) play();
+          wanted = e.isIntersecting;
+          if (wanted) play();
           else v.pause();
         });
       }, { threshold: 0.25 });
       io.observe(v);
+
+      // Some browsers ignore the first play() while the element is still
+      // fetching; retry once the data is there.
+      v.addEventListener('canplay', play);
     });
 
     // If the browser refuses to autoplay at all, the poster frame is still a
