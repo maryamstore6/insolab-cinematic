@@ -210,6 +210,35 @@
 
   const MAX_QTY = 10;
 
+  let waNumber = '60123456789';
+
+  function getWhatsAppUrl() {
+    const p = PRODUCTS[selected];
+    const perPack = parseInt(p.qty, 10) || 1;
+    const totalUnits = perPack * quantity;
+    const totalPrice = p.price * quantity;
+    const message = encodeURIComponent(
+      'Hi INSOLAB, I want to order: ' + p.name +
+      ' (' + totalUnits + ' unit) — RM' + totalPrice
+    );
+    return 'https://wa.me/' + waNumber + '?text=' + message;
+  }
+
+  function openOrder() {
+    window.open(getWhatsAppUrl(), '_blank');
+  }
+
+  function initOrder() {
+    const cta = document.getElementById('cta-total-bb');
+    if (cta) cta.addEventListener('click', openOrder);
+
+    const form = document.getElementById('order-form');
+    if (form) form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      openOrder();
+    });
+  }
+
   function renderSummary() {
     const p = PRODUCTS[selected];
     const perPack = parseInt(p.qty, 10) || 1;
@@ -254,49 +283,13 @@
         document.querySelectorAll('[data-product]').forEach((o) => o.classList.remove('is-picked'));
         opt.classList.add('is-picked');
         selected = opt.getAttribute('data-product');
-        quantity = 1;          // switching package starts a fresh count
+        quantity = 1;
         renderSummary();
       });
     });
     renderSummary();
     initQty();
-
-    const form = document.getElementById('order-form');
-    if (!form) return;
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const fd = new FormData(form);
-      const p = PRODUCTS[selected];
-      const perPack = parseInt(p.qty, 10) || 1;
-      const totalUnits = perPack * quantity;
-      const totalPrice = p.price * quantity;
-      const no = 'ISL-' + Math.floor(100000 + Math.random() * 900000);
-
-      const set = (id, val) => {
-        const n = document.getElementById(id);
-        if (n) n.textContent = val;
-      };
-
-      set('cf-no', no);
-      set('cf-name', fd.get('name') || '—');
-      set('cf-phone', fd.get('phone') || '—');
-      set('cf-product', p.name + ' — ' + totalUnits + ' unit'
-        + (quantity > 1 ? ' (' + quantity + ' × ' + p.qty + ')' : ''));
-      set('cf-total', 'RM' + totalPrice);
-
-      // swap views
-      const checkout = document.getElementById('view-checkout');
-      const done = document.getElementById('view-confirm');
-      if (checkout) checkout.hidden = true;
-      if (done) done.hidden = false;
-
-      if (lenis) lenis.scrollTo(0, { immediate: false, duration: 0.9 });
-      else window.scrollTo({ top: 0, behavior: 'smooth' });
-
-      if (window.ScrollTrigger) ScrollTrigger.refresh();
-    });
+    initOrder();
   }
 
   /* ---------------------------------------------------------
