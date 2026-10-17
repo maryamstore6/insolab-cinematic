@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Insoles Malaysia — Financial Model & Business Plan</title>
+<style>
+:root{--bg:#F7F4EE;--card:#FFF;--text:#2D251F;--text2:#8B7E74;--accent:#D94F5C;--border:#EAE6E3;--shadow:0 2px 8px rgba(45,37,31,.06);--radius:12px;--green:#059669;--amber:#D97706;--red:#DC2626;--blue:#2563EB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;padding:24px}
+.container{max-width:1200px;margin:0 auto}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin-bottom:24px;border:1px solid var(--border)}
+h1{font-size:34px;font-weight:800;margin-bottom:10px;line-height:1.2}
+h2{font-size:23px;font-weight:700;margin-bottom:16px}
+h3{font-size:17px;font-weight:650;margin:20px 0 10px}
+h4{font-size:15px;font-weight:600;margin:14px 0 6px;color:var(--text)}
+p{margin-bottom:12px}
+.subtitle{color:var(--text2);font-size:13px;text-transform:uppercase;letter-spacing:1.4px;margin-bottom:14px;font-weight:600}
+.meta{color:var(--text2);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:18px 0}
+.kpi{background:var(--bg);border-radius:var(--radius);padding:18px;border:1px solid var(--border)}
+.kpi-value{font-size:26px;font-weight:750;color:var(--accent);line-height:1.1}
+.kpi-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-top:6px}
+.kpi-note{font-size:13px;font-weight:600;margin-top:8px;color:var(--text2)}
+ul,ol{padding-left:22px;margin:10px 0}
+li{margin-bottom:9px}
+.tag{display:inline-block;background:var(--bg);border:1px solid var(--border);border-radius:50px;padding:5px 13px;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin:3px 3px 3px 0;font-weight:600}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--border);padding-bottom:12px;margin-bottom:20px;flex-wrap:wrap;gap:8px}
+.sec-head h2{margin:0}
+.sec-meta{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text2)}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text2);padding:11px 12px;border-bottom:2px solid var(--border);font-weight:700}
+td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:#FAF8F5}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.up{color:var(--green);font-weight:600}
+.down{color:var(--red);font-weight:600}
+.warn{color:var(--amber);font-weight:600}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.insight{background:var(--bg);border-radius:var(--radius);padding:16px 18px;border-left:3px solid var(--accent);margin:14px 0}
+.insight-title{font-weight:700;margin-bottom:5px;font-size:14px;color:var(--accent)}
+.insight-text{font-size:14px;color:var(--text)}
+.warnbox{background:#FEF6F0;border-left:3px solid var(--amber)}
+.warnbox .insight-title{color:var(--amber)}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-num{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px}
+.step-body{flex:1}
+.step-title{font-weight:700;font-size:15px;margin-bottom:4px}
+.step-text{font-size:14px;color:var(--text2);margin-bottom:6px}
+.step-tags{margin-top:6px}
+.step-tags span{display:inline-block;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-size:11px;color:var(--text2);margin-right:6px;font-weight:600}
+.bar-wrap{margin:10px 0}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:13px}
+.bar-label{width:180px;flex-shrink:0;font-weight:600;font-size:13px}
+.bar-track{flex:1;height:24px;background:var(--bg);border-radius:4px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-size:11px;font-weight:700;min-width:60px}
+.bar-fill.g{background:var(--green)}.bar-fill.a{background:var(--amber)}.bar-fill.b{background:var(--blue)}.bar-fill.r{background:var(--accent)}
+.phase{border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px;background:var(--bg)}
+.phase-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.phase-title{font-weight:700;font-size:16px}
+.phase-badge{font-size:11px;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:50px;font-weight:700}
+.phase-badge.p1{background:#DBEAFE;color:#1D4ED8}.phase-badge.p2{background:#D1FAE5;color:#065F46}.phase-badge.p3{background:#FEF3C7;color:#92400E}.phase-badge.p4{background:#FCE7F3;color:#9D174D}
+.phase-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.phase-stat{text-align:center;padding:12px;background:var(--card);border-radius:8px;border:1px solid var(--border)}
+.phase-stat-val{font-size:18px;font-weight:700;color:var(--accent)}
+.phase-stat-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-top:4px}
+.checkpoint{background:#FFF7ED;border:1px solid #FED7AA;border-radius:8px;padding:12px 14px;margin-top:12px}
+.checkpoint-title{font-weight:700;color:#9A3412;font-size:13px;margin-bottom:4px}
+.checkpoint-text{font-size:13px;color:#7C2D12}
+.source{font-size:12px;color:var(--text2);margin-top:10px;line-height:1.7}
+.source a{color:var(--accent);text-decoration:none}
+.footer{text-align:center;color:var(--text2);font-size:12px;margin-top:36px;padding-top:20px;border-top:1px solid var(--border);line-height:1.8}
+.formula{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin:10px 0;font-family:monospace;font-size:13px;line-height:1.8}
+.formula strong{color:var(--accent)}
+@media(max-width:768px){.grid2,.grid3,.grid4{grid-template-columns:1fr}.bar-label{width:130px;font-size:12px}h1{font-size:25px}h2{font-size:20px}body{padding:14px}.card{padding:18px}table{font-size:13px}td,th{padding:8px}.phase-stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="card">
+  <div class="subtitle">Financial Model • Business Plan • Malaysia</div>
+  <h1>Custom Insoles Malaysia</h1>
+  <p class="meta">Analisis Lengkap • 18 Okt 2026</p>
+  <div>
+    <span class="tag">Foam Impression Kit</span>
+    <span class="tag">3D Scan</span>
+    <span class="tag">China Production</span>
+    <span class="tag">D2C Malaysia</span>
+  </div>
+  <div class="insight" style="margin-top:18px">
+    <div class="insight-title">Kesimpulan Eksekutif</div>
+    <div class="insight-text">Model ini <strong>layak dan boleh dilaksana</strong>. Harga jual RM599, break-even hanya <strong>11 unit/bulan</strong>, margin <strong>61.77%</strong>. Scanner RM10,000 kembali dalam <strong>kurang 1 bulan</strong> pada 50+ unit/bulan. Sasaran realistik: <strong>80–150 unit/bulan</strong> dalam 6 bulan pertama → untung bersih <strong>RM25,000–51,000/bulan</strong>.</div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 1: KOS & UNIT ECONOMICS ==================== -->
+<div class="card">
+  <div class="sec-head"><h2>1. Struktur Kos</h2><span class="sec-meta">Unit economics per pasang</span></div>
+  <table>
+    <tr><th>Kos berubah (per unit)</th><th class="num">Jumlah</th><th>Perincian</th></tr>
+    <tr><td>Pos dua hala (Malaysia)</td><td class="num">RM 14</td><td>RM7 (kit ke pelanggan) + RM7 (balik ke lab)</td></tr>
+    <tr><td>Impression foam kit</td><td class="num">RM 20</td><td>Foam + kotak, beli bulk</td></tr>
+    <tr><td>Sub-production China</td><td class="num">RM 160</td><td>Per unit, digital file → kilang</td></tr>
+    <tr><td>Pos China → Malaysia</td><td class="num">RM 35</td><td>Post laut/udara ke customer</td></tr>
+    <tr style="background:#FAF8F5;font-weight:700"><td><strong>Total variable cost</strong></td><td class="num"><strong>RM 229</strong></td><td>Per pasang</td></tr>
+  </table>
+  <div class="grid2" style="margin-top:16px">
+    <div>
+      <h3>Kos Tetap (bulanan)</h3>
+      <table>
+        <tr><td>Sewa kedai</td><td class="num">RM 1,000</td></tr>
+        <tr><td>Gaji staff (1 orang)</td><td class="num">RM 3,000</td></tr>
+        <tr style="font-weight:700"><td><strong>Total fixed cost</strong></td><td class="num"><strong>RM 4,000</strong></td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Kos Sekali (one-time)</h3>
+      <table>
+        <tr><td>3D scanning machine</td><td class="num">RM 10,000</td></tr>
+        <tr style="font-weight:700"><td><strong>Total one-time</strong></td><td class="num"><strong>RM 10,000</strong></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="formula">
+    <strong>Formula:</strong><br>
+    Unit margin = Harga jual − RM229<br>
+    Break-even (unit) = RM4,000 ÷ Unit margin<br>
+    Untung bersih = (Unit margin × Unit dijual) − RM4,000<br>
+    Payback scanner = RM10,000 ÷ (Unit margin × Unit/bulan)
+  </div>
+</div>
+
+<!-- ==================== SECTION 2: PRICING & BREAK-EVEN ==================== -->
+<div class="card">
+  <div class="sec-head"><h2>2. Harga Jual & Break-Even</h2><span class="sec-meta">5 titik harga</span></div>
+  <table>
+    <tr><th>Harga Jual</th><th class="num">Unit Margin</th><th class="num">Margin %</th><th class="num">Break-Even (unit/bln)</th><th class="num">Break-Even (revenue)</th></tr>
+    <tr><td class="num">RM 399</td><td class="num">RM 170</td><td class="num">42.6%</td><td class="num warn">24</td><td class="num">RM 9,576</td></tr>
+    <tr><td class="num">RM 499</td><td class="num">RM 270</td><td class="num">54.1%</td><td class="num">15</td><td class="num">RM 7,485</td></tr>
+    <tr style="background:#F0FDF4"><td class="num"><strong>RM 599 ✓</strong></td><td class="num"><strong>RM 370</strong></td><td class="num"><strong>61.8%</strong></td><td class="num up"><strong>11</strong></td><td class="num"><strong>RM 6,589</strong></td></tr>
+    <tr><td class="num">RM 699</td><td class="num">RM 470</td><td class="num">67.2%</td><td class="num up">9</td><td class="num">RM 6,291</td></tr>
+    <tr><td class="num">RM 799</td><td class="num">RM 570</td><td class="num">71.3%</td><td class="num up">8</td><td class="num">RM 6,392</td></tr>
+  </table>
+
+  <h3>Kenapa RM599 adalah pilihan optimal</h3>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-value">RM599</div><div class="kpi-label">Harga Standard</div><div class="kpi-note">61.8% margin</div></div>
+    <div class="kpi"><div class="kpi-value">11 unit</div><div class="kpi-label">Break-even/bln</div><div class="kpi-note">Sangat reachable</div></div>
+    <div class="kpi"><div class="kpi-value">&lt;1 bulan</div><div class="kpi-label">Payback scanner</div><div class="kpi-note">Pada 50+ unit/bln</div></div>
+    <div class="kpi"><div class="kpi-value">RM25.6K</div><div class="kpi-label">Untung @ 80 unit</div><div class="kpi-note">53.4% margin</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="insight">
+      <div class="insight-title">vs. Heat-moldable (RM280–470)</div>
+      <div class="insight-text">RM599 adalah 27–28% lebih mahal — justified dengan <strong>true 3D custom scan</strong>, bukan sekadar heat-mold.</div>
+    </div>
+    <div class="insight">
+      <div class="insight-title">vs. Clinic custom (RM1,400–3,800)</div>
+      <div class="insight-text">RM599 adalah <strong>77% lebih murah</strong> — senjata #1 untuk marketing.</div>
+    </div>
+    <div class="insight">
+      <div class="insight-title">vs. Online custom (RM700–1,650)</div>
+      <div class="insight-text">RM599 adalah <strong>55% lebih murah</strong> — value proposition kukuh.</div>
+    </div>
+    <div class="insight">
+      <div class="insight-title">Psikologi harga</div>
+      <div class="insight-text">RM599 bawah <strong>threshold psikologi RM600</strong> — rasa "berpatutan" untuk custom orthotics.</div>
+    </div>
+  </div>
+
+  <h3>Tier Harga Disyorkan</h3>
+  <table>
+    <tr><th>Tier</th><th class="num">Harga</th><th>Target</th><th>Strategi</th></tr>
+    <tr><td><strong>Starter</strong></td><td class="num">RM 499</td><td>Sensitif harga, first-time</td><td>Undercut international brands 30–50%</td></tr>
+    <tr style="background:#F0FDF4"><td><strong>Standard ✓</strong></td><td class="num">RM 599</td><td>Foot pain sufferers</td><td>Sweet spot — margin + volume optimum</td></tr>
+    <tr><td><strong>Premium</strong></td><td class="num">RM 699</td><td>Diabetic, severe, corporate</td><td>Material premium + follow-up</td></tr>
+    <tr><td><strong>Bundle</strong></td><td class="num">RM 999–1,099</td><td>Work + sports pair</td><td>Increase AOV, lock-in</td></tr>
+    <tr><td><strong>Replacement</strong></td><td class="num">RM 399–449</td><td>Repeat customers</td><td>High margin — no kit needed, scan on file</td></tr>
+  </table>
+</div>
+
+<!-- ==================== SECTION 3: PROFIT PROJECTION ==================== -->
+<div class="card">
+  <div class="sec-head"><h2>3. Profit Projection Bulanan</h2><span class="sec-meta">Harga RM599</span></div>
+  <table>
+    <tr><th>Unit Dijual</th><th class="num">Revenue</th><th class="num">Variable Cost</th><th class="num">Fixed Cost</th><th class="num">Untung Bersih</th><th class="num">Margin %</th></tr>
+    <tr class="warn"><td class="num">20</td><td class="num">RM 11,980</td><td class="num">RM 4,580</td><td class="num">RM 4,000</td><td class="num warn">RM 3,400</td><td class="num">28.4%</td></tr>
+    <tr><td class="num">30</td><td class="num">RM 17,970</td><td class="num">RM 6,870</td><td class="num">RM 4,000</td><td class="num up">RM 7,100</td><td class="num">39.5%</td></tr>
+    <tr style="background:#F0FDF4"><td class="num"><strong>50</strong></td><td class="num"><strong>RM 29,950</strong></td><td class="num"><strong>RM 11,450</strong></td><td class="num"><strong>RM 4,000</strong></td><td class="num up"><strong>RM 14,500</strong></td><td class="num"><strong>48.4%</strong></td></tr>
+    <tr><td class="num">80</td><td class="num">RM 47,920</td><td class="num">RM 18,320</td><td class="num">RM 4,000</td><td class="num up">RM 25,600</td><td class="num">53.4%</td></tr>
+    <tr><td class="num">100</td><td class="num">RM 59,900</td><td class="num">RM 22,900</td><td class="num">RM 4,000</td><td class="num up">RM 33,000</td><td class="num">55.1%</td></tr>
+    <tr><td class="num">150</td><td class="num">RM 89,850</td><td class="num">RM 34,350</td><td class="num">RM 4,000</td><td class="num up">RM 51,500</td><td class="num">57.3%</td></tr>
+    <tr><td class="num">200</td><td class="num">RM 119,800</td><td class="num">RM 45,800</td><td class="num">RM 4,000</td><td class="num up">RM 70,000</td><td class="num">58.4%</td></tr>
+    <tr><td class="num">300</td><td class="num">RM 179,700</td><td class="num">RM 68,700</td><td class="num">RM 4,000</td><td class="num up">RM 107,000</td><td class="num">59.5%</td></tr>
+  </table>
+
+  <div class="bar-wrap">
+    <div class="bar-row"><div class="bar-label">30 unit</div><div class="bar-track"><div class="bar-fill g" style="width:6.6%">RM7.1K</div></div></div>
+    <div class="bar-row"><div class="bar-label">80 unit</div><div class="bar-track"><div class="bar-fill g" style="width:23.8%">RM25.6K</div></div></div>
+    <div class="bar-row"><div class="bar-label">150 unit</div><div class="bar-track"><div class="bar-fill g" style="width:48%">RM51.5K</div></div></div>
+    <div class="bar-row"><div class="bar-label">300 unit</div><div class="bar-track"><div class="bar-fill g" style="width:100%">RM107K</div></div></div>
+  </div>
+  <p class="note">* Belum termasuk kos iklan/marketing. Margin % = untung bersih ÷ revenue.</p>
+</div>
+
+<!-- ==================== SECTION 4: SENSITIVITY ==================== -->
+<div class="card">
+  <div class="sec-head"><h2>4. Analisis Sensitiviti</h2><span class="sec-meta">Apa berlaku jika kos berubah</span></div>
+  <div class="grid2">
+    <div>
+      <h3>✓ Kos production +20%</h3>
+      <p class="note">RM160 → RM192, variable cost baru RM261</p>
+      <table>
+        <tr><th>Harga</th><th class="num">Margin</th><th class="num">Margin %</th><th class="num">Break-even</th></tr>
+        <tr><td class="num">RM 399</td><td class="num">RM 138</td><td class="num down">34.6%</td><td class="num down">29</td></tr>
+        <tr style="background:#F0FDF4"><td class="num">RM 599</td><td class="num up">RM 338</td><td class="num up">56.4%</td><td class="num up">12</td></tr>
+        <tr><td class="num">RM 799</td><td class="num">RM 538</td><td class="num">67.3%</td><td class="num">8</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>✓ Kos pos +30%</h3>
+      <p class="note">RM14 → RM18.20, variable cost baru RM233.20</p>
+      <table>
+        <tr><th>Harga</th><th class="num">Margin</th><th class="num">Margin %</th><th class="num">Break-even</th></tr>
+        <tr><td class="num">RM 399</td><td class="num">RM 165.80</td><td class="num">41.6%</td><td class="num">25</td></tr>
+        <tr style="background:#F0FDF4"><td class="num">RM 599</td><td class="num up">RM 365.80</td><td class="num up">61.1%</td><td class="num up">11</td></tr>
+        <tr><td class="num">RM 799</td><td class="num">RM 565.80</td><td class="num">70.8%</td><td class="num">8</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="insight">
+    <div class="insight-title">Kesimpulan Sensitiviti</div>
+    <div class="insight-text">Kos pos naik 30% hanyamenaikkan variable cost RM4.20 — <strong>hampir tak kesan</strong>. Kos production naik 20% adalah <strong>risiko sebenar</strong> — pada harga RM399 break-even melonjak ke 29 unit dan margin jatuh ke 34.6%. Pada RM599, walaupun production naik 20%, margin kekal <strong>56.4%</strong> — masih selamat.</div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 5: SCENARIO ==================== -->
+<div class="card">
+  <div class="sec-head"><h2>5. Senario 4 Keadaan</h2><span class="sec-meta">Bulanan, harga RM599</span></div>
+  <div class="grid4">
+    <div class="phase" style="background:var(--card)">
+      <div class="phase-header"><span class="phase-title">Konservatif</span><span class="phase-badge p1">30 unit</span></div>
+      <div class="phase-stats">
+        <div class="phase-stat"><div class="phase-stat-val">RM18K</div><div class="phase-stat-label">Revenue</div></div>
+        <div class="phase-stat"><div class="phase-stat-val up">RM7.1K</div><div class="phase-stat-label">Profit</div></div>
+        <div class="phase-stat"><div class="phase-stat-val">39.5%</div><div class="phase-stat-label">Margin</div></div>
+        <div class="phase-stat"><div class="phase-stat-val">✓</div><div class="phase-stat-label">Break-even</div></div>
+      </div>
+    </div>
+    <div class="phase" style="background:var(--card)">
+      <div class="phase-header"><span class="phase-title">Sederhana</span><span class="phase-badge p2">80 unit</span></div>
+      <div class="phase-stats">
+        <div class="phase-stat"><div class="phase-stat-val">RM48K</div><div class="phase-stat-label">Revenue</div></div>
+        <div class="phase-stat"><div class="phase-stat-val up">RM25.6K</div><div class="phase-stat-label">Profit</div></div>
+        <div class="phase-stat"><div class="phase-stat-val">53.4%</div><div class="phase-stat-label">Margin</div></div>
+        <div class="phase-stat"><div class="phase-stat-val">✓✓</div><div class="phase-stat-label">Break-even</div></div>
+      </div>
+    </div>
+    <div class="phase" style="background:var(--card)">
+      <div class="phase-header"><span class="phase-title">Optimis</span><span class="phase-badge p3">150 unit</span></div>
+      <div class="phase-stats">
+        <div class="phase-stat"><div class="phase-stat-val">RM90K</div><div class="phase-stat-label">Revenue</div></div>
+        <div class="phase-stat"><div class="phase-stat-val up">RM51.5K</div><div class="phase-stat-label">Profit</div></div>
+        <div class="phase-stat"><div class="phase-stat-val">57.3%</div><div class="phase-stat-label">Margin</div></div>
+        <div class="phase-stat"><div class="phase-stat-val">✓✓✓</div><div class="phase-stat-label">Break-even</div></div>
+      </div>
+    </div>
+    <div class="phase" style="background:var(--card)">
+      <div class="phase-header"><span class="phase-title">Agresif</span><span class="phase-badge p4">300 unit</span></div>
+      <div class="phase-stats">
+        <div class="phase-stat"><div class="phase-stat-val">RM180K</div><div class="phase-stat-label">Revenue</div></div>
+        <div class="phase-stat"><div class="phase-stat-val up">RM107K</div><div class="phase-stat-label">Profit</div></div>
+        <div class="phase-stat"><div class="phase-stat-val">59.5%</div><div class="phase-stat-label">Margin</div></div>
+        <div class="phase-stat"><div class="phase-stat-val">✓✓✓✓</div><div class="phase-stat-label">Break-even</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 6: TIMELINE ==================== -->
+<div class="card">
+  <div class="sec-head"><h2>6. Timeline Perniagaan 24 Bulan</h2><span class="sec-meta">4 fasa, milestone jelas</span></div>
+
+  <div class="phase">
+    <div class="phase-header"><span class="phase-title">Fasa 1 — Validation</span><span class="phase-badge p1">Bulan 1–3</span></div>
+    <div class="phase-stats">
+      <div class="phase-stat"><div class="phase-stat-val">RM25–35K</div><div class="phase-stat-label">Investment</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">RM15–28K</div><div class="phase-stat-label">Revenue Target</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">−5K to +5K</div><div class="phase-stat-label">Profit Target</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">Solo</div><div class="phase-stat-label">Team</div></div>
+    </div>
+    <h4>Apa perlu dilakukan:</h4>
+    <ul>
+      <li>Beli sampel kit foam dari 3 pembekal, uji kualiti dan ketahanan pos</li>
+      <li>Cari 1 lab orthotics tempatan untuk outsource scan + produce, buat 5 pasang percubaan</li>
+      <li>Rakam video arahan pijak foam 60 detik (BM, jelas, perlahan)</li>
+      <li>Tetapkan harga: RM599 (single) / RM1,099 (2 unit bundle)</li>
+      <li>Bina landing page + Shopee store + TikTok account</li>
+      <li>Recruit 10–20 beta tester dengan harga kos + testimoni</li>
+    </ul>
+    <div class="checkpoint">
+      <div class="checkpoint-title">⚠ Checkpoint: Fasa 1 → 2</div>
+      <div class="checkpoint-text">Perlu capai <strong>30+ unit/bulan, satisfaction 4.0+, unit economics positif</strong> sebelum tambah investment.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-header"><span class="phase-title">Fasa 2 — Growth</span><span class="phase-badge p2">Bulan 4–6</span></div>
+    <div class="phase-stats">
+      <div class="phase-stat"><div class="phase-stat-val">RM35–50K</div><div class="phase-stat-label">Investment</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">RM73–105K</div><div class="phase-stat-label">Revenue Target</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">RM15–30K</div><div class="phase-stat-label">Profit Target</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">2–3 orang</div><div class="phase-stat-label">Team</div></div>
+    </div>
+    <h4>Apa perlu dilakukan:</h4>
+    <ul>
+      <li>Buka iklan kecil (RM1,500–3,000/bulan) di TikTok + Shopee</li>
+      <li>Hire 1 staff marketing + 1 staff operations</li>
+      <li>Scale content production — 15–20 video TikTok/minggu</li>
+      <li>Optimasi conversion rate landing page</li>
+      <li>Mulai podiatrist referral program (10–15% commission)</li>
+      <li>Explore corporate wellness B2B</li>
+    </ul>
+    <div class="checkpoint">
+      <div class="checkpoint-title">⚠ Checkpoint: Fasa 2 → 3</div>
+      <div class="checkpoint-text">Perlu sustain <strong>RM8K+/month profit 2+ bulan</strong> dengan <strong>SOP didokumentasikan</strong> sebelum scale besar.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-header"><span class="phase-title">Fasa 3 — Scale</span><span class="phase-badge p3">Bulan 7–12</span></div>
+    <div class="phase-stats">
+      <div class="phase-stat"><div class="phase-stat-val">RM100–150K</div><div class="phase-stat-label">Investment</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">RM390–537K</div><div class="phase-stat-label">Revenue Target</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">RM150–220K</div><div class="phase-stat-label">Profit Target</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">4–5 orang</div><div class="phase-stat-label">Team</div></div>
+    </div>
+    <h4>Apa perlu dilakukan:</h4>
+    <ul>
+      <li>Optimasi supply chain — nego bulk foam, production China</li>
+      <li>Scale marketing — RM5K–10K/bulan iklan</li>
+      <li>Expand product line — children's, sports, diabetic</li>
+      <li>Build corporate B2B channel — on-site assessments</li>
+      <li>Explore regional — Singapore, Indonesia</li>
+    </ul>
+    <div class="checkpoint">
+      <div class="checkpoint-title">⚠ Checkpoint: Fasa 3 → 4</div>
+      <div class="checkpoint-text">Perlu bukti <strong>200+ unit/bulan</strong> dan <strong>B2B viability</strong> sebelum ekspansi regional.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-header"><span class="phase-title">Fasa 4 — Expansion</span><span class="phase-badge p4">Tahun 2</span></div>
+    <div class="phase-stats">
+      <div class="phase-stat"><div class="phase-stat-val">RM200–300K</div><div class="phase-stat-label">Investment</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">RM2.2–3.1M</div><div class="phase-stat-label">Revenue Target</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">RM1.0–1.2M</div><div class="phase-stat-label">Profit Target</div></div>
+      <div class="phase-stat"><div class="phase-stat-val">5–6 orang</div><div class="phase-stat-label">Team</div></div>
+    </div>
+    <h4>Apa perlu dilakukan:</h4>
+    <ul>
+      <li>Launch Singapore / Indonesia market</li>
+      <li>Buy 3D scanner in-house (RM10,000) — reduce outsourcing cost</li>
+      <li>Explore franchise / licensing model</li>
+      <li>Exit options: acquisition, strategic partnership</li>
+    </ul>
+  </div>
+
+  <div class="insight">
+    <div class="insight-title">Total 2-Year Investment & Return</div>
+    <div class="insight-text">Total investment 2 tahun: <strong>RM360K–535K</strong> (funded progressively). Exit valuation estimate: <strong>RM3–5 juta</strong> (3–4x net profit multiple).</div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 7: COMPETITORS ==================== -->
+<div class="card">
+  <div class="sec-head"><h2>7. Analisis Competitor</h2><span class="sec-meta">Malaysia + International</span></div>
+  <h3>Competitor Lokal (Klinik & Kedai)</h3>
+  <table>
+    <tr><th>Brand</th><th class="num">Harga (RM)</th><th>Model</th><th>Kelebihan</th></tr>
+    <tr><td><strong>WellArch</strong></td><td class="num">2,600</td><td>3D scan + CAD, 10-yr package</td><td>Long-term care, Shopee/Lazada</td></tr>
+    <tr><td><strong>PedaHeel</strong></td><td class="num">1,500</td><td>3D scan + custom design</td><td>Healthcare channel</td></tr>
+    <tr><td><strong>KakiJoy</strong></td><td class="num">~1,000</td><td>RM99 assessment + 3D scan</td><td>Children's specialist</td></tr>
+    <tr><td><strong>SureFeet</strong></td><td class="num">~800–1,200</td><td>16 locations</td><td>Wide footprint</td></tr>
+    <tr><td><strong>AK FootWellness</strong></td><td class="num">379</td><td>Ready in 30 min</td><td>Speed, lower price</td></tr>
+  </table>
+  <h3>Competitor International (Foam Kit — Same Model)</h3>
+  <table>
+    <tr><th>Brand</th><th class="num">Harga (USD)</th><th class="num">~RM</th><th>Model</th></tr>
+    <tr><td><strong>Roam Insoles</strong></td><td class="num">$230–250</td><td class="num">~1,000–1,100</td><td>Foam box / iPhone scan</td></tr>
+    <tr><td><strong>Upstep</strong></td><td class="num">$200–250</td><td class="num">~900–1,100</td><td>Foam impression kit</td></tr>
+    <tr><td><strong>Stryder</strong></td><td class="num">$325</td><td class="num">~1,400</td><td>Foam box, podiatrist-reviewed</td></tr>
+    <tr><td><strong>Texas Foot Orthotics</strong></td><td class="num">$360</td><td class="num">~1,550</td><td>Foam box, podiatrist-designed</td></tr>
+  </table>
+  <div class="insight">
+    <div class="insight-title">Peluang Kami</div>
+    <div class="insight-text"><strong>Tiada competitor lokal</strong> yang tawarkan model foam kit → 3D scan → China production → direct-to-door. International brands validate model tapi ship dari US/UK dengan delivery 3–6 minggu. Kami masuk di pricing <strong>RM499–699</strong> — 30–50% lebih murah dari international, <strong>40–60% lebih murah</strong> dari klinik lokal.</div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 8: MARKETING & REGULATORY ==================== -->
+<div class="card">
+  <div class="sec-head"><h2>8. Marketing & Regulatory</h2><span class="sec-meta">Channel + compliance</span></div>
+  <h3>Channel Marketing — Prioriti</h3>
+  <table>
+    <tr><th>#</th><th>Channel</th><th>Sebab</th><th class="num">Budget/bln</th></tr>
+    <tr><td>1</td><td><strong>TikTok Shop</strong></td><td>#1 social commerce Malaysia, discovery-driven</td><td class="num">RM2,000–5,000</td></tr>
+    <tr><td>2</td><td><strong>Shopee</strong></td><td>Largest marketplace (39M users), search-led</td><td class="num">RM1,000–3,000</td></tr>
+    <tr><td>3</td><td><strong>Instagram</strong></td><td>Validation layer — reviews, before/after</td><td class="num">RM500–2,000</td></tr>
+    <tr><td>4</td><td><strong>WhatsApp Business</strong></td><td>Direct, repeat orders, corporate</td><td class="num">RM0–200</td></tr>
+    <tr><td>5</td><td><strong>Google Ads</strong></td><td>Capture high-intent searches</td><td class="num">RM1,000–3,000</td></tr>
+    <tr><td>6</td><td><strong>Podiatrist Referral</strong></td><td>Medical credibility, 10–15% commission</td><td class="num">RM0</td></tr>
+    <tr><td>7</td><td><strong>Corporate Wellness</strong></td><td>B2B bulk orders, HRDF-claimable</td><td class="num">RM0</td></tr>
+  </table>
+  <h3>Regulatory — MDA & PDPA</h3>
+  <div class="grid2">
+    <div class="insight">
+      <div class="insight-title">MDA (Medical Devices Authority)</div>
+      <div class="insight-text">Elak claim "treat/cure/correct". Market sebagai <strong>"comfort and support insoles"</strong>. Disclaimer: "Not a medical device." Kalau nak medical claim, perlu <strong>Class A registration</strong> (3–6 bulan).</div>
+    </div>
+    <div class="insight">
+      <div class="insight-title">PDPA (Data Protection)</div>
+      <div class="insight-text">Foot scans = <strong>biometric data</strong>. Kena disclose transfer data ke China untuk production. Privacy policy + consent diperlukan dari hari pertama.</div>
+    </div>
+  </div>
+  <h3>Seasonal Demand</h3>
+  <div class="bar-wrap">
+    <div class="bar-row"><div class="bar-label">Ramadan–Hari Raya</div><div class="bar-track"><div class="bar-fill g" style="width:95%">MAJOR PUSH — largest retail window</div></div></div>
+    <div class="bar-row"><div class="bar-label">11.11 / 12.12</div><div class="bar-track"><div class="bar-fill g" style="width:90%">BIGGEST e-commerce events</div></div></div>
+    <div class="bar-row"><div class="bar-label">New Year (Jan)</div><div class="bar-track"><div class="bar-fill b" style="width:60%">Fitness resolution marketing</div></div></div>
+    <div class="bar-row"><div class="bar-label">9.9 / 10.10</div><div class="bar-track"><div class="bar-fill b" style="width:55%">Platform sale events</div></div></div>
+    <div class="bar-row"><div class="bar-label">CNY (Feb)</div><div class="bar-track"><div class="bar-fill r" style="width:40%">Pantang sebagai Cina — fokus pasar lain</div></div></div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 9: RISIKO & MITIGASI ==================== -->
+<div class="card">
+  <div class="sec-head"><h2>9. Risiko & Mitigasi</h2><span class="sec-meta">10 risiko utama</span></div>
+  <table>
+    <tr><th>#</th><th>Risiko</th><th>Impak</th><th>Mitigasi</th></tr>
+    <tr><td>1</td><td>Foam rosak semasa pos</td><td class="warn">Sederhana</td><td>Kotak kaku double-wall + plastik seal + label "FRAGILE"</td></tr>
+    <tr><td>2</td><td>Teknik pijak salah → acuan cacat</td><td class="down">Tinggi</td><td>Video arahan 60s + checklist + semak gambar acuan</td></tr>
+    <tr><td>3</td><td>Kos pos dua hala makan margin</td><td class="down">Tinggi</td><td>Harga RM599+, kurangkan berat kit</td></tr>
+    <tr><td>4</td><td>CAC tinggi (paid ads)</td><td class="down">Kritikal</td><td>Fokus organic (TikTok/IG), referral, affiliate</td></tr>
+    <tr><td>5</td><td>Turnaround lambat → komplen</td><td class="warn">Sederhana</td><td>Set ekspektasi 7–14 hari, tracking setiap fasa</td></tr>
+    <tr><td>6</td><td>Klaim perubatan → isu MDA</td><td class="down">Tinggi</td><td>Elak klaim "treat/cure", guna "comfort & support"</td></tr>
+    <tr><td>7</td><td>Fit tak padan → refund</td><td class="down">Tinggi</td><td>Garansi remake sekali, semak acuan awal, simpan fail 3D</td></tr>
+    <tr><td>8</td><td>Volume tak cukup untuk cover kos</td><td class="warn">Sederhana</td><td>Target 30+ unit/bln minimum, 80+ untuk selesa</td></tr>
+    <tr><td>9</td><td>Data scan pelanggan bocor (PDPA)</td><td class="down">Tinggi</td><td>Encryption, consent, disclose transfer ke China</td></tr>
+    <tr><td>10</td><td>Supplier China gagal / MOQ tinggi</td><td class="warn">Sederhana</td><td>Diversify 2–3 supplier, simpan stok buffer</td></tr>
+  </table>
+</div>
+
+<!-- ==================== SECTION 10: ACTION PLAN ==================== -->
+<div class="card">
+  <div class="sec-head"><h2>10. Action Plan 90 Hari</h2><span class="sec-meta">Quick-start checklist</span></div>
+  <div class="grid3">
+    <div class="phase" style="background:var(--card)">
+      <div class="phase-header"><span class="phase-title">Bulan 1</span><span class="phase-badge p1">Setup</span></div>
+      <ul style="font-size:13px">
+        <li>✓ Beli sampel foam dari 3 pembekal</li>
+        <li>✓ Cari lab orthotics tempatan</li>
+        <li>✓ Buat 5 pasang percubaan</li>
+        <li>✓ Rakam video arahan 60s</li>
+        <li>✓ Bina landing page + Shopee + TikTok</li>
+        <li>✓ Tetapkan harga RM599 / RM1,099 (bundle)</li>
+        <li>✓ Register SSM</li>
+      </ul>
+    </div>
+    <div class="phase" style="background:var(--card)">
+      <div class="phase-header"><span class="phase-title">Bulan 2</span><span class="phase-badge p2">Validate</span></div>
+      <ul style="font-size:13px">
+        <li>✓ 20–30 beta tester (harga kos)</li>
+        <li>✓ Dokumentasi kos sebenar</li>
+        <li>✓ Ukur remake/refund rate</li>
+        <li>✓ 5–10 video TikTok</li>
+        <li>✓ Test Shopee listing</li>
+        <li>✓ Kira semua metrik</li>
+      </ul>
+    </div>
+    <div class="phase" style="background:var(--card)">
+      <div class="phase-header"><span class="phase-title">Bulan 3</span><span class="phase-badge p3">Launch</span></div>
+      <ul style="font-size:13px">
+        <li>✓ Launch di TikTok Shop</li>
+        <li>✓ Buka iklan RM500–1,500</li>
+        <li>✓ 80+ order target</li>
+        <li>✓ Kira CAC sebenar</li>
+        <li>✓ Keputusan: scale atau iterate</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Metrik yang WAJIB diukur dari hari pertama</h3>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-value" style="font-size:18px">Kos/pasang</div><div class="kpi-label">Kos Sebenar</div><div class="kpi-note">Bukan anggaran</div></div>
+    <div class="kpi"><div class="kpi-value" style="font-size:18px">&lt;15%</div><div class="kpi-label">Remake/Refund</div><div class="kpi-note">Kualiti acuan</div></div>
+    <div class="kpi"><div class="kpi-value" style="font-size:18px">&lt;RM120</div><div class="kpi-label">CAC per Order</div><div class="kpi-note">Keselamatan margin</div></div>
+    <div class="kpi"><div class="kpi-value" style="font-size:18px">&lt;14 hari</div><div class="kpi-label">Delivery Time</div><div class="kpi-note">Order → pintu</div></div>
+    <div class="kpi"><div class="kpi-value" style="font-size:18px">4.0+</div><div class="kpi-label">NPS / Rating</div><div class="kpi-note">Kepuasan pelanggan</div></div>
+    <div class="kpi"><div class="kpi-value" style="font-size:18px">30+</div><div class="kpi-label">Order Bulan 1</div><div class="kpi-note">Minimum viable</div></div>
+  </div>
+</div>
+
+<!-- ==================== SUMMARY ==================== -->
+<div class="card">
+  <div class="sec-head"><h2>Kesimpulan Akhir</h2><span class="sec-meta">Penilaian model</span></div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-value">RM599</div><div class="kpi-label">Harga Jual</div><div class="kpi-note">61.8% margin</div></div>
+    <div class="kpi"><div class="kpi-value">11 unit</div><div class="kpi-label">Break-even/bln</div><div class="kpi-note">Mudah dicapai</div></div>
+    <div class="kpi"><div class="kpi-value">&lt;1 bulan</div><div class="kpi-label">Payback Scanner</div><div class="kpi-note">50+ unit/bln</div></div>
+    <div class="kpi"><div class="kpi-value">RM25.6K</div><div class="kpi-label">Profit @ 80 unit</div><div class="kpi-note">53.4% margin</div></div>
+  </div>
+
+  <h3>3 Kunci Kejayaan</h3>
+  <div class="grid3">
+    <div class="insight">
+      <div class="insight-title">1. Harga RM599+</div>
+      <div class="insight-text">Serap kos pos dua hala + CAC. RM399 = margin terlalu tipis.</div>
+    </div>
+    <div class="insight">
+      <div class="insight-title">2. Arahan Acuan Berkualiti</div>
+      <div class="insight-text">Video + checklist + semak gambar acuan. Elak remake mahal.</div>
+    </div>
+    <div class="insight">
+      <div class="insight-title">3. Content Organik</div>
+      <div class="insight-text">TikTok/IG content = CAC rendah = margin selamat. Paid ads hanya setelah PMF.</div>
+    </div>
+  </div>
+
+  <h3>Roadmap Ringkas</h3>
+  <table>
+    <tr><th>Fasa</th><th>Bulan</th><th class="num">Revenue/bln</th><th class="num">Profit/bln</th><th>Milestone</th></tr>
+    <tr><td>Validation</td><td class="num">1–3</td><td class="num">RM 5–10K</td><td class="num">−2K to +5K</td><td>30+ order, PMF validated</td></tr>
+    <tr><td>Growth</td><td class="num">4–6</td><td class="num">RM 20–35K</td><td class="num">RM 8–15K</td><td>80+ order, CAC &lt;RM120</td></tr>
+    <tr><td>Scale</td><td class="num">7–12</td><td class="num">RM 60–120K</td><td class="num">RM 30–60K</td><td>150+ order, B2B channel</td></tr>
+    <tr><td>Expansion</td><td class="num">13–24</td><td class="num">RM 150–250K</td><td class="num">RM 80–120K</td><td>Regional, in-house production</td></tr>
+  </table>
+
+  <div class="insight">
+    <div class="insight-title">Rekomendasi Akhir</div>
+    <div class="insight-text">Mula dengan <strong>outsource lab tempatan (zero capex)</strong>, 20–30 order beta. Harga <strong>RM599</strong>. Fokus <strong>TikTok Shop</strong> sebagai primary channel. Tambah Shopee bulan 2. Ukur semua metrik dari hari pertama. Beli 3D scanner in-house hanya bila volume <strong>150+ order/bulan</strong> konsisten. Model ini layak diuji — <strong>break-even hanya 11 unit/bulan</strong>.</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Custom Insoles Malaysia — Financial Model & Business Plan</p>
+  <p>3 agen analisis: financial model • business timeline • competitive pricing</p>
+  <p>Dijana dengan Hermes Agent + Treg Web Access • 18 Okt 2026</p>
+  <p>Bukan nasihat perubatan, kewangan, atau pelaburan</p>
+</div>
+
+</div>
+</body>
+</html>
