@@ -200,9 +200,9 @@
      6. ORDER FORM → confirmation view
      --------------------------------------------------------- */
   const PRODUCTS = {
-    'omfad-1':   { name: 'On My Feet All Day',        qty: '1 unit', price: 399 },
-    'nea-1':     { name: 'Normal Everyday Activity',  qty: '1 unit', price: 399 },
-    'bundle-2':  { name: '2 Unit Package',            qty: '2 unit', price: 699 }
+    'omfad-1':   { name: 'On My Feet All Day',        qty: '1 unit', price: 599 },
+    'nea-1':     { name: 'Normal Everyday Activity',  qty: '1 unit', price: 599 },
+    'bundle-2':  { name: '2 Unit Package',            qty: '2 unit', price: 1099 }
   };
 
   let selected = 'bundle-2';
